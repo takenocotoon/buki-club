@@ -181,16 +181,21 @@ class BukiStars {
     filterBukiList(key, checkboxId, list) {
         const checkboxes = Array.from(document.querySelectorAll('input[name="' + checkboxId + '"]'));
         const allChecked = checkboxes.every(checkbox => checkbox.checked);
+        console.log(key);
         if (key !== 'type' && key !== 'sub' && key !== 'sp' && key !== 'season')
             return [...list];
+        console.log(key);
         if (!allChecked) {
+            console.log(key);
             const selectedTypes = checkboxes
                 .filter(checkbox => checkbox.checked)
                 .map(checkbox => checkbox.value);
+            console.log(selectedTypes);
             const filteredList = list.filter((buki) => selectedTypes.includes(buki[key]));
             this.filterOptions[key] = checkboxes
                 .filter(checkbox => checkbox.checked)
                 .map(checkbox => checkbox.value);
+            console.log(filteredList);
             return filteredList;
         }
         this.filterOptions[key] = [];

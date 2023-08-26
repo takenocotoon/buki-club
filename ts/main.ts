@@ -224,7 +224,6 @@ class BukiStars {
     // 設定適応
     applySettings() {
         const bodyEle:HTMLElement = document.getElementsByTagName('body')[0];
-        console.log('ここ');
         // カラーテーマ
         const settingsThemeRadios = document.querySelectorAll<HTMLInputElement>('input[name="settingsTheme"]');
         settingsThemeRadios.forEach(radio => {
@@ -232,7 +231,6 @@ class BukiStars {
                 const selectedValue:string = radio.value;
                 this.settings.theme = selectedValue;
                 bodyEle.className = 'theme-'+selectedValue;
-                console.log(selectedValue);
             }
         });
         
@@ -351,7 +349,6 @@ class BukiStars {
         for (let index=0; index<radios.length; index++) {
             if (this.settings[key] == radios[index].value) {
                 radios[index].checked = true;
-                console.log(radios[index].value);
             }
         }
     }
@@ -418,7 +415,6 @@ function attachAllCheckboxEvents(name:string) {
     const target = Array.from(document.querySelectorAll<HTMLInputElement>('input[name="'+name+'"]'));
     target.forEach(checkbox => {
         checkbox.addEventListener('click', (event) => {
-            console.log(event.target);
             const targetCheckbox = event.target as HTMLInputElement;
             if (targetCheckbox.id == 'js-'+targetCheckbox.name+'--all') {
                 target.forEach(checkbox => {
