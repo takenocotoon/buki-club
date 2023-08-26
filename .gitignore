@@ -1,3 +1,8 @@
+.create
+node_modules
+template
+
+
 # Logs
 logs
 *.log
