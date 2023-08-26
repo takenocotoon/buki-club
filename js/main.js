@@ -139,6 +139,34 @@ class BukiStars {
             this.saveLocalStorageData();
             this.renderWeaponsCount();
         };
+        // 今日のブキ
+        this.pickRandomWeaponForToday = () => {
+            const buki = this.getRandomWeapon();
+            if (buki) {
+                if (this.settings.language == 'ja')
+                    alert('今日は' + buki.ja + 'を使ってみませんか？');
+                if (this.settings.language == 'en')
+                    alert('Would you like to try using ' + buki.en + ' today?');
+            }
+        };
+        this.getRandomWeapon = () => {
+            if (this.weaponsList.length === 0) {
+                const randomIndex = Math.floor(Math.random() * bukiList.length);
+                return bukiList[randomIndex];
+            }
+            const eligibleWeapons = this.weaponsList.filter((weapon) => {
+                const weaponId = weapon.id;
+                const markedWeaponValue = this.markedWeapons[weaponId];
+                return (!markedWeaponValue ||
+                    (markedWeaponValue <= this.settings.mode));
+            });
+            if (eligibleWeapons.length === 0) {
+                const randomIndex = Math.floor(Math.random() * this.weaponsList.length);
+                return this.weaponsList[randomIndex];
+            }
+            const randomIndex = Math.floor(Math.random() * eligibleWeapons.length);
+            return eligibleWeapons[randomIndex];
+        };
     }
     // ブキ数表示
     renderWeaponsCount() {
@@ -401,6 +429,7 @@ window.onload = function () {
     attachClickHandler('js-set-filer-btn-b', bukiStars.renderWeapons);
     attachClickHandler('js-set-setting-btn-t', bukiStars.renderWeapons);
     attachClickHandler('js-set-setting-btn-b', bukiStars.renderWeapons);
+    attachClickHandler('js-random-btn', bukiStars.pickRandomWeaponForToday);
     attachAllCheckboxEvents('weaponType');
     attachAllCheckboxEvents('weaponSubType');
     attachAllCheckboxEvents('weaponSPType');

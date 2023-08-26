@@ -688,50 +688,85 @@ footer address {
 #p-buki-box .p-tr div.p-done--5::before {
   background-image: url("../img/star5.webp");
 }
+@media (any-hover: hover) {
+  #p-buki-box .p-tr div.p-done--5:hover::before {
+    background-image: none;
+  }
+  #p-buki-box .p-tr div.p-done--5:hover::after {
+    background-image: none;
+  }
+}
 #p-buki-box #p-weapon-count-box {
   width: 100%;
   padding-right: 5%;
   text-align: right;
 }
 
-#p-buki-box.mode-star1 .p-tr div.p-done--1 img {
-  opacity: 1;
-}
-
 #p-buki-box.mode-star1 .p-tr div.p-done--1::after {
   background-image: none;
 }
-
-#p-buki-box.mode-star2 .p-tr div.p-done--2 img {
+@media (any-hover: hover) {
+  #p-buki-box.mode-star1 .p-tr div.p-done--1:hover::before {
+    background-image: url("../img/star2.webp");
+  }
+  #p-buki-box.mode-star1 .p-tr div.p-done--1:hover::after {
+    background-image: url("../img/check2.webp");
+  }
+}
+#p-buki-box.mode-star1 .p-tr div.p-done--1 img {
   opacity: 1;
 }
 
 #p-buki-box.mode-star2 .p-tr div.p-done--2::after {
   background-image: none;
 }
-
-#p-buki-box.mode-star3 .p-tr div.p-done--3 img {
+@media (any-hover: hover) {
+  #p-buki-box.mode-star2 .p-tr div.p-done--2:hover::before {
+    background-image: url("../img/star3.webp");
+  }
+  #p-buki-box.mode-star2 .p-tr div.p-done--2:hover::after {
+    background-image: url("../img/check3.webp");
+  }
+}
+#p-buki-box.mode-star2 .p-tr div.p-done--2 img {
   opacity: 1;
 }
 
 #p-buki-box.mode-star3 .p-tr div.p-done--3::after {
   background-image: none;
 }
-
-#p-buki-box.mode-star4 .p-tr div.p-done--4 img {
+@media (any-hover: hover) {
+  #p-buki-box.mode-star3 .p-tr div.p-done--3:hover::before {
+    background-image: url("../img/star4.webp");
+  }
+  #p-buki-box.mode-star3 .p-tr div.p-done--3:hover::after {
+    background-image: url("../img/check4.webp");
+  }
+}
+#p-buki-box.mode-star3 .p-tr div.p-done--3 img {
   opacity: 1;
 }
 
 #p-buki-box.mode-star4 .p-tr div.p-done--4::after {
   background-image: none;
 }
-
-#p-buki-box.mode-star5 .p-tr div.p-done--5 img {
+@media (any-hover: hover) {
+  #p-buki-box.mode-star4 .p-tr div.p-done--4:hover::before {
+    background-image: url("../img/star5.webp");
+  }
+  #p-buki-box.mode-star4 .p-tr div.p-done--4:hover::after {
+    background-image: url("../img/check5.webp");
+  }
+}
+#p-buki-box.mode-star4 .p-tr div.p-done--4 img {
   opacity: 1;
 }
 
 #p-buki-box.mode-star5 .p-tr div.p-done--5::after {
   background-image: none;
+}
+#p-buki-box.mode-star5 .p-tr div.p-done--5 img {
+  opacity: 1;
 }
 
 .p-filter-form, .p-setting-form {
