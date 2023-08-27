@@ -25,6 +25,16 @@ class BukiStars {
     
     // ブキ選択をリセットする
     resetWeapons = () => {
+        
+        let result = false;
+        if (this.settings.language == 'ja') {
+            result = window.confirm('本当にリセットしても良いですか？');
+        } else if (this.settings.language == 'en') {
+            result = window.confirm('Do you really want to reset?');
+        }
+        
+        if (!result) return;
+        
         this.markedWeapons = {};
         this.saveLocalStorageData();
         this.renderWeapons();

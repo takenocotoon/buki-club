@@ -98,7 +98,7 @@ export const bukiList:Buki[] = [
     { id: 6020, ja: "スパイガジェット", en: "Undercover Brella", original: "スパイガジェット", season: "0", rank: 18, sub: "trap", sp: "sameride", type: "brella",  },
     { id: 7010, ja: "トライストリンガー", en: "Tri-Stringer", original: "トライストリンガー", season: "0", rank: 4, sub: "poisonmist", sp: "megaphone51", type: "stringer",  },
     { id: 7020, ja: "LACT-450", en: "REEF-LUX 450", original: "LACT-450", season: "0", rank: 10, sub: "curlingbomb", sp: "missile", type: "stringer",  },
-    { id: 8010, ja: "ドライブワイパー", en: "Splatana Wiper", original: "ドライブワイパー", season: "0", rank: 5, sub: "torpedo", sp: "ultrahanko", type: "splatana",  },
     { id: 8000, ja: "ジムワイパー", en: "Splatana Stamper", original: "ジムワイパー", season: "0", rank: 15, sub: "quickbomb", sp: "shokuwander", type: "splatana",  },
+    { id: 8010, ja: "ドライブワイパー", en: "Splatana Wiper", original: "ドライブワイパー", season: "0", rank: 5, sub: "torpedo", sp: "ultrahanko", type: "splatana",  },
     { id: 8011, ja: "ドライブワイパーデコ", en: "Splatana Wiper Deco", original: "ドライブワイパー", season: "4", rank: 10, sub: "jumpbeacon", sp: "missile", type: "splatana",  },
 ]
