@@ -414,7 +414,8 @@ function hideSubMenu(id) {
     const target = document.getElementById(id);
     if (!target)
         return;
-    // target.classList.remove('is_active');
+    if (target.classList.contains('is_active'))
+        target.classList.remove('is_active');
     target.classList.add('is_not_active');
     setTimeout(function () {
         if (target.classList.contains('is_not_active'))

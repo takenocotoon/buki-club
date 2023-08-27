@@ -1,4 +1,5 @@
 @import "../variables";
+
 nav {
     z-index: 99;
     position: absolute;
@@ -46,7 +47,6 @@ nav {
         
         font-size: 1.5rem;
         text-align: left;
-        font-family: "Splatoon2", $font;
         
         @include mq('pc') {
             flex-wrap: wrap;
@@ -64,16 +64,15 @@ nav {
                 line-height: 3.5rem;
                 // padding: 5px;
             }
-            
             @include mq('sp') {
-                border-bottom: 1px solid $border-color;
+                border-bottom: 1px solid var(--border-color);
                 
                 &:first-child {
-                    border-top: 1px solid $border-color;
+                    border-top: 1px solid  var(--border-color);
                 }
             }
             
-            a {
+            >a {
                 display: block;
                 position: relative;
                 width: 100%;
@@ -81,13 +80,35 @@ nav {
                 
                 text-decoration: none;
                 text-align: center;
-                font-family: 'Splatoon2';
                 font-size: 1rem;
+                
+                @include mq('pc') {
+                    height: 95%;
+                    margin: 0 2px;
+                    border-radius: 0.5rem;
+                    
+                    &:link, &:visited {
+                        color: var(--txt-color-on-main);
+                    }
+                    &:active, &.is_active {
+                        background: rgba(var(--button-bgcolor-rgb), 0.5);
+                    }
+                    @media (any-hover:hover) {
+                        &:hover {
+                            background: rgba(var(--button-bgcolor-rgb), 0.5);
+                        }
+                    }
+                }
+                @include mq('sp') {
+                    padding: 2rem;
+                    font-size: 1.3rem;
+                    -webkit-tap-highlight-color: rgba(var(--main-color), 0.5);
+                }
                 
                 // 下線
                 &::before {
-                    content: "";
                     z-index: 101;
+                    content: "";
                     display: block;
                     position: absolute;
                     bottom: 0.7rem;
@@ -100,54 +121,13 @@ nav {
                     transition-timing-function: ease-out;
                     transform: scaleX(0);
                 }
+                &:active::before, &.is_active::before {
+                    transform: scaleX(1);
+                }
                 @media (any-hover:hover) {
                     &:hover::before {
                         transform: scaleX(1);
                     }
-                }
-                @media (any-hover:none) {
-                    &:active::before {
-                        transform: scaleX(1);
-                    }
-                }
-                
-                @include mq('pc') {
-                    height: 95%;
-                    margin: 0 2px;
-                    border-radius: 0.5rem;
-                    
-                    &:link, &:visited {
-                        color: #FFF;
-                    }
-                    @media (any-hover:hover) {
-                        &:hover {
-                            background: rgba(var(--txt-link-color-rgb), 0.5);
-                        }
-                    }
-                    @media (any-hover:none) {
-                        &:active {
-                            background: rgba(var(--txt-link-color-rgb), 0.5);
-                        }
-                    }
-                }
-                
-                @include mq('sp') {
-                    padding: 2rem;
-                    font-size: 1.3rem;
-                    -webkit-tap-highlight-color: rgba(var(--main-color), 0.5);
-                }
-            }
-            &.is_active {
-                a::before {
-                    transform: scaleX(1);
-                }
-                @include mq('pc') {
-                    border-radius: 0.5rem;
-                    // padding: 5px;
-                    background: rgba(var(--txt-link-color-rgb), 0.5);
-                }
-                @include mq('sp') {
-                    background: rgba(var(--txt-link-color-rgb), 0.1);
                 }
             }
             
@@ -181,19 +161,19 @@ nav {
                 }
             }
             
+            >a:active + div,  >a.is_active + div{
+                transform: scaleY(1);
+                display: block;
+                opacity: 1;
+            }
             @media (any-hover:hover) {
-                &:hover > div {
+                >a:hover + div, >div:hover {
                     transform: scaleY(1);
                     display: block;
                     opacity: 1;
                 }
             }
-            > div:hover, &:active > div,  &.is_active> div{
-                transform: scaleY(1);
-                display: block;
-                opacity: 1;
-            }
-            &.is_not_active> div{
+            >a.is_not_active + div{
                 transform: scaleY(0);
                 display: none;
                 opacity: 0;
@@ -206,6 +186,12 @@ nav {
         }
     }
 }
+body.theme-dark nav >ul >li >a {
+    &:link, &:visited {
+        color: var(--txt-color-on-main);
+    }
+}
+
 .c-hamburger {
     padding: 0;
     background-color: transparent;

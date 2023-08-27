@@ -1,7 +1,7 @@
 <nav>
     <ul>
-        <li onclick="openSubMenu(this);" id="js-menu--filter">
-            <a href="#">
+        <li>
+            <a href="#" onclick="openSubMenu(this);" id="js-menu--filter">
                 <i class="ri-filter-fill"></i>
                 <span lang="ja">フィルタ</span>
                 <span lang="en">Filter</span>
@@ -168,8 +168,8 @@
                 <!-- <button type="button" id="js-set-star1-button">Clear</button> -->
             </div>
         </li>
-        <li onclick="openSubMenu(this);" id="js-menu--settings">
-            <a href="#">
+        <li>
+            <a href="#" onclick="openSubMenu(this);" id="js-menu--settings">
                 <i class="ri-settings-3-fill"></i>
                 <span lang="ja">設定</span>
                 <span lang="en">Setting</span>

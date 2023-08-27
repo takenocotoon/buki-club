@@ -456,7 +456,7 @@ function getCheckedValues(checkboxes: HTMLInputElement[]): string[] {
 function hideSubMenu(id:string) {
     const target:HTMLElement = document.getElementById(id) as HTMLElement;
     if (!target) return;
-    // target.classList.remove('is_active');
+    if (target.classList.contains('is_active')) target.classList.remove('is_active');
     target.classList.add('is_not_active');
     setTimeout(function () {
         if (target.classList.contains('is_not_active')) target.classList.remove('is_not_active');
