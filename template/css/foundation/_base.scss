@@ -8,6 +8,7 @@
     url(../font/s2font.ttf) format('truetype');
 }
 
+//base
 * {
     box-sizing: border-box;
 }
@@ -51,24 +52,35 @@ button {
     line-height: 1.7rem;
     margin: 1rem;
     padding: 0.5rem 1rem;
-    background-color: var(--txt-link-color);
-    color: #FFF;
+    background-color: var(--button-bgcolor);
+    color: var(--button-txt-color);
     border: none;
     border-radius: 1rem;
     transition: background-color 0.2s ease, color 0.2s ease;
     
     &:active {
-        background-color: var(--main-color);
+        background-color: var(--button-bgcolor-active);
         color: var(--txt-color);
     }
     @media (any-hover: hover) {
         &:hover, &:active {
-            background-color: var(--main-color);
+            background-color: var(--button-bgcolor-active);
             color: var(--txt-color);
         }
     }
 }
+dialog {
+    background-color: var(--base-bgcolor1);
+    border-radius: 0.5rem;
+    border-width: 0;
+    box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.2);
+    
+    
+    color: var(--txt-color);
+    text-align: center;
+}
 
+// 多言語設定
 body [lang="ja"], body [lang="en"] {
     display: none;
 }
@@ -79,6 +91,3 @@ body[lang="en"] [lang="en"]{
     display: inline;
 }
 
-dialog {
-    text-align: center;
-}

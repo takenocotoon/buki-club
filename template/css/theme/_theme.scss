@@ -1,22 +1,42 @@
 body {
     --main-color: #6695e0;
-    // --txt-color: ;
     --accent-color: #ff8587;
+    
     --base-bgcolor1: #ECECEC;
     --base-bgcolor1-rgb: 236, 236, 236;
     --base-bgcolor2: #ffffff;
+    --base-bgcolor2-rgb: 255, 255, 255;
+    
+    --border-color: #cccccc;
+    
+    --txt-color-on-main: #FFF;
     --txt-color: #333333;
     --txt-link-color: #3a66ac;
     --txt-link-color-rgb: 58, 102, 172;
+    
+    --button-bgcolor: #3a66ac;
+    --button-bgcolor-rgb: 58, 102, 172;
+    --button-bgcolor-active: #6695e0;
+    --button-txt-color: #FFF;
 }
 body.theme-dark {
     --main-color: #1c1c27;
     --accent-color: #7f5af0;
+    
     --base-bgcolor1: #2d2b2e;
     --base-bgcolor1-rgb: 45, 43, 46;
     --base-bgcolor2: #16161a;
     --base-bgcolor2-rgb: 22, 22, 26;
+    
+    --border-color: #cccccc;
+    
+    --txt-color-on-main: #e0e0e0;
     --txt-color: #ECECEC;
-    --txt-link-color: #575a63;
+    --txt-link-color: #73757a;
     --txt-link-color-rgb: 87, 90, 99;
+    
+    --button-bgcolor: #575a63;
+    --button-bgcolor-rgb: 87, 90, 99;
+    --button-bgcolor-active: #3e248b;
+    --button-txt-color: #e0e0e0;
 }
