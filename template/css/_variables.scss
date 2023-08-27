@@ -1,0 +1,28 @@
+// Theme
+$main-color: #6695e0;
+$sub-bgcolor: #a3bce4;
+$accent-color: #ff8587;
+$base-bgcolor1: #ECECEC;
+$base-bgcolor2: #ffffff;
+$txt-color: #333333;
+$disable-color: #999;
+$txt-link-color: #3a66ac;
+$error-color: #e24b4e;
+$done-color: #00c2a5;
+$border-color: #cccccc;
+
+$breakpoint-mobile: 767px;
+$breakpoints: (
+	"sp": "screen and (max-width: #{$breakpoint-mobile})",
+	"pc": "screen and (min-width: #{$breakpoint-mobile + 1px})",
+);
+
+$font: 'M PLUS Rounded 1c', sans-serif;
+
+// メディアクエリー
+@mixin mq($breakpoint: sp) {
+	@media #{map-get($breakpoints, $breakpoint)} {
+		@content;
+	}
+}
+

@@ -178,6 +178,7 @@ class BukiStars {
             myWeaponEle.classList.add('p-done');
             myWeaponEle.classList.add('p-done--1');
         }
+        if (!myWeaponEle.classList.contains('is-done')) myWeaponEle.classList.add('is-done');
         
         // データ保存
         this.saveLocalStorageData();
