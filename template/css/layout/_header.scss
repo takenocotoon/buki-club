@@ -1,0 +1,31 @@
+@import "../variables";
+header {
+    position: relative;
+    
+    background: var(--main-color);
+    box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.2);
+    
+    height: 4rem;
+    
+    color: #FFF;
+    font-size: 1.5rem;
+    text-align: left;
+    font-weight: bold;
+    font-family: "Splatoon2", $font;
+    
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    
+    h1{
+        font-weight: normal;
+        font-size: 2rem;
+        padding: 1rem 5rem;
+        margin: 0;
+        @include mq('sp') {
+            font-size: 1.5rem;
+            padding: 1rem 1rem;
+        }
+    }
+}

@@ -1,0 +1,326 @@
+@import "../variables";
+nav {
+    z-index: 99;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    
+    @include mq('sp') {
+        // position: fixed;
+        right: 100%;
+        width: 100%;
+        max-width: 600px;
+        height: auto;
+        min-height: 100%;
+        
+        background: rgba(var(--base-bgcolor1-rgb), 0.95);
+        margin: 0;
+        padding: 5rem 1rem;
+        opacity: 0;
+        transition: opacity 0.24s;
+        pointer-events: none;
+        box-shadow: 0px 0px 20px rgba(0,0,0,0.2);
+        
+        &.is_active {
+            animation: menu_bar forwards 0.3s ease;
+            opacity: 1;
+            pointer-events: auto;
+            right: 0;
+        }
+        &.is_no_active {
+            animation: menu_bar_r forwards 0.3s ease;
+            opacity: 0;
+            pointer-events: none;
+            right: -100%;
+        }
+    }
+    
+    >ul {
+        width: 100%;
+        height: 4rem;
+        margin: 0;
+        padding: 5px 2rem 5px 0;
+        
+        display: flex;
+        list-style-type: none;
+        
+        font-size: 1.5rem;
+        text-align: left;
+        font-family: "Splatoon2", $font;
+        
+        @include mq('pc') {
+            flex-wrap: wrap;
+            justify-content: flex-end;
+        }
+        @include mq('sp') {
+            height: 100%;
+            padding: 0;
+            flex-direction: column;
+        }
+        
+        >li{
+            @include mq('pc') {
+                height: 3.5rem;
+                line-height: 3.5rem;
+                // padding: 5px;
+            }
+            
+            @include mq('sp') {
+                border-bottom: 1px solid $border-color;
+                
+                &:first-child {
+                    border-top: 1px solid $border-color;
+                }
+            }
+            
+            a {
+                display: block;
+                position: relative;
+                width: 100%;
+                padding: 0 1rem;
+                
+                text-decoration: none;
+                text-align: center;
+                font-family: 'Splatoon2';
+                font-size: 1rem;
+                
+                // 下線
+                &::before {
+                    content: "";
+                    z-index: 101;
+                    display: block;
+                    position: absolute;
+                    bottom: 0.7rem;
+                    right: 20%;
+                    height: 3px;
+                    width: 60%;
+                    
+                    background: var(--accent-color);
+                    transition: 0.2s;
+                    transition-timing-function: ease-out;
+                    transform: scaleX(0);
+                }
+                @media (any-hover:hover) {
+                    &:hover::before {
+                        transform: scaleX(1);
+                    }
+                }
+                @media (any-hover:none) {
+                    &:active::before {
+                        transform: scaleX(1);
+                    }
+                }
+                
+                @include mq('pc') {
+                    height: 95%;
+                    margin: 0 2px;
+                    border-radius: 0.5rem;
+                    
+                    &:link, &:visited {
+                        color: #FFF;
+                    }
+                    @media (any-hover:hover) {
+                        &:hover {
+                            background: rgba(var(--txt-link-color-rgb), 0.5);
+                        }
+                    }
+                    @media (any-hover:none) {
+                        &:active {
+                            background: rgba(var(--txt-link-color-rgb), 0.5);
+                        }
+                    }
+                }
+                
+                @include mq('sp') {
+                    padding: 2rem;
+                    font-size: 1.3rem;
+                    -webkit-tap-highlight-color: rgba(var(--main-color), 0.5);
+                }
+            }
+            &.is_active {
+                a::before {
+                    transform: scaleX(1);
+                }
+                @include mq('pc') {
+                    border-radius: 0.5rem;
+                    // padding: 5px;
+                    background: rgba(var(--txt-link-color-rgb), 0.5);
+                }
+                @include mq('sp') {
+                    background: rgba(var(--txt-link-color-rgb), 0.1);
+                }
+            }
+            
+            // 折りたたみメニュー
+            > div {
+                // display: none;
+                width: 100%;
+                margin-top: 4rem;
+                padding: 0 2rem 0.5rem;
+                
+                transition: opacity 1s;
+                opacity: 0;
+                transform: scaleY(0);
+                transition: 0.1s;
+                transition-timing-function: ease-out;
+                transform-origin: top center;
+                
+                @include mq('pc') {
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    max-width: 1200px;
+                    padding: 0.5rem 5rem 5rem;
+                    background: rgba(var(--base-bgcolor1-rgb), 0.95);
+                }
+                @include mq('sp') {
+                    position: relative;
+                    display: none;
+                    margin-top: 0;
+                    background: transparent;
+                }
+            }
+            
+            @media (any-hover:hover) {
+                &:hover > div {
+                    transform: scaleY(1);
+                    display: block;
+                    opacity: 1;
+                }
+            }
+            > div:hover, &:active > div,  &.is_active> div{
+                transform: scaleY(1);
+                display: block;
+                opacity: 1;
+            }
+            &.is_not_active> div{
+                transform: scaleY(0);
+                display: none;
+                opacity: 0;
+            }
+            
+            button {
+                width: 100%;
+                margin-bottom: 3rem;
+            }
+        }
+    }
+}
+.c-hamburger {
+    padding: 0;
+    background-color: transparent;
+    
+    &:active {
+        background-color: transparent;
+    }
+    &:hover, &:active {
+        background-color: transparent;
+    }
+    @include mq('pc') {
+        display: none;
+    }
+    
+    @include mq('sp') {
+        z-index: 100;
+        position: relative;
+        width: 2rem;
+        height: 1.8rem;
+        margin: 1rem;
+        
+        background: transparent;
+        border-width: 2px;
+        border-style: outset;
+        border-color: transparent;
+        cursor: pointer;
+        
+        span {
+            position: absolute;
+            display: block;
+            left: 0;
+            height: 4px;
+            width: 100%;
+            
+            background: $border-color;
+            border-radius: 1rem;
+            
+            &:nth-child(1) {
+                top: 0;
+            }
+            &:nth-child(2) {
+                top: 50%;
+                transform: translateY(-50%);
+            }
+            &:nth-child(3) {
+                top: 100%;
+                transform: translateY(-100%);
+            }
+        }
+        
+        &.is_active{
+            span{
+                background: var(--txt-color);
+                &:nth-child(1) {
+                    animation: hamburger1 forwards 0.3s ease;
+                    top: 50%; transform: translateY(-50%) rotate(135deg);
+                }
+                &:nth-child(2) {
+                    animation: hamburger2 forwards 0.3s ease;
+                    transform: translate(50%, -50%); opacity: 0;
+                }
+                &:nth-child(3) {
+                    animation: hamburger3 forwards 0.3s ease;
+                    top: 50%; transform: translateY(-50%) rotate(-135deg);
+                }
+            }
+        }
+        &.is_not_active{
+            span{
+                background: $border-color;
+                &:nth-child(1) {
+                    animation: hamburger1_r forwards 0.3s ease;
+                    top: 0; transform: none;
+                }
+                &:nth-child(2) {
+                    animation: hamburger2_r forwards 0.3s ease;
+                    transform: translateY(-50%); opacity: 1;
+                }
+                &:nth-child(3) {
+                    animation: hamburger3_r forwards 0.3s ease;
+                    top: 100%; transform: translateY(-100%);
+                }
+            }
+        }
+    }
+}
+@keyframes menu_bar {
+    from { opacity: 0; right: -50%;}
+    to   { opacity: 1; right: 0;}
+}
+@keyframes menu_bar_r {
+    from { opacity: 1; right: 0;}
+    to   { opacity: 0; right: -50%;}
+}
+@keyframes hamburger1{
+    from { top: 0; transform: none; background: $border-color; }
+    to   { top: 50%; transform: translateY(-50%) rotate(135deg);background: var(--txt-color); }
+}
+@keyframes hamburger2{
+    from { transform: translateY(-50%); opacity: 1; background: $border-color; }
+    to   { transform: translate(50%, -50%); opacity: 0;background: var(--txt-color); }
+}
+@keyframes hamburger3{
+    from { top: 100%; transform: translateY(-100%); background: $border-color; }
+    to   { top: 50%; transform: translateY(-50%) rotate(-135deg);background: var(--txt-color); }
+}
+@keyframes hamburger1_r{
+    from { top: 50%; transform: translateY(-50%) rotate(135deg);background: var(--txt-color); }
+    to   { top: 0; transform: none; background: $border-color; }
+}
+@keyframes hamburger2_r{
+    from { transform: translate(50%, -50%); opacity: 0; background: var(--txt-color); }
+    to   { transform: translateY(-50%); opacity: 1; background: $border-color; }
+}
+@keyframes hamburger3_r{
+    from { top: 50%; transform: translateY(-50%) rotate(-135deg); background: var(--txt-color); }
+    to   { top: 100%; transform: translateY(-100%); background: $border-color; }
+}

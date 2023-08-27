@@ -1,0 +1,27 @@
+@import "../variables";
+
+/* 回り込み解除 */
+.cl {
+    clear: both;
+}
+
+/* 絵文字 */
+.c-icon {
+	width: 1rem;
+	height: 1rem;
+	vertical-align: middle;
+    border: none;
+}
+
+/* 外部リンク */
+.c-blank-link a[target="_blank"]:after {
+    content: url('./img/target8.png');
+    margin: 0px 5px;
+}
+
+/* スマホでのみ表示 */
+.c-mobile-only {
+    @include mq('pc') {
+        display: none;
+	}
+}

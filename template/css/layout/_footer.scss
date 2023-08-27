@@ -1,0 +1,13 @@
+@import "../variables";
+footer {
+    position: relative;
+    margin: 0;
+    padding: 0.8rem;
+    // background: $sub-bgcolor;
+    font-size: 1rem;
+    
+    address {
+        color: var(--txt-link-color);
+        font-style: normal;
+    }
+}
