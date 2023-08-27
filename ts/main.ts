@@ -356,10 +356,19 @@ class BukiStars {
     // 今日のブキ
     pickRandomWeaponForToday = () => {
         const buki = this.getRandomWeapon();
-        if (buki) {
-            if (this.settings.language == 'ja') alert('今日は'+buki.ja+'を使ってみませんか？');
-            if (this.settings.language == 'en') alert('Would you like to try using ' + buki.en + ' today?');
-        }
+        const dialogEle:HTMLDialogElement|null = document.getElementById('js-random-weapon--box') as HTMLDialogElement;
+        const dialogWeaponTxtJaEle:HTMLElement|null = document.getElementById('js-random-weapon--nameJa') as HTMLElement;
+        const dialogWeaponTxtEnEle:HTMLElement|null = document.getElementById('js-random-weapon--nameEn') as HTMLElement;
+        const dialogWeaponImgEle:HTMLImageElement|null = document.getElementById('js-random-weapon--img') as HTMLImageElement;
+            
+        if (!buki || !dialogEle || !dialogWeaponTxtJaEle || !dialogWeaponTxtEnEle || !dialogWeaponImgEle) return;
+        
+        dialogWeaponTxtJaEle.innerText = buki.ja;
+        dialogWeaponTxtEnEle.innerText = buki.en;
+        dialogWeaponImgEle.src = './img/weapons/' + buki.id + '.webp';
+        dialogEle.showModal();
+            // if (this.settings.language == 'ja') alert('今日は'+buki.ja+'を使ってみませんか？');
+            // if (this.settings.language == 'en') alert('Would you like to try using ' + buki.en + ' today?');
     }
     getRandomWeapon = () : Buki | null =>  {
         if (this.weaponsList.length === 0) {
@@ -466,6 +475,7 @@ window.onload = function() {
     attachClickHandler('js-set-setting-btn-t', bukiStars.renderWeapons);
     attachClickHandler('js-set-setting-btn-b', bukiStars.renderWeapons);
     attachClickHandler('js-random-btn', bukiStars.pickRandomWeaponForToday);
+    attachClickHandler('js-random-btn2', bukiStars.pickRandomWeaponForToday);
     attachAllCheckboxEvents('weaponType');
     attachAllCheckboxEvents('weaponSubType');
     attachAllCheckboxEvents('weaponSPType');

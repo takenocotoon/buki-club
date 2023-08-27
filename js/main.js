@@ -142,12 +142,18 @@ class BukiStars {
         // 今日のブキ
         this.pickRandomWeaponForToday = () => {
             const buki = this.getRandomWeapon();
-            if (buki) {
-                if (this.settings.language == 'ja')
-                    alert('今日は' + buki.ja + 'を使ってみませんか？');
-                if (this.settings.language == 'en')
-                    alert('Would you like to try using ' + buki.en + ' today?');
-            }
+            const dialogEle = document.getElementById('js-random-weapon--box');
+            const dialogWeaponTxtJaEle = document.getElementById('js-random-weapon--nameJa');
+            const dialogWeaponTxtEnEle = document.getElementById('js-random-weapon--nameEn');
+            const dialogWeaponImgEle = document.getElementById('js-random-weapon--img');
+            if (!buki || !dialogEle || !dialogWeaponTxtJaEle || !dialogWeaponTxtEnEle || !dialogWeaponImgEle)
+                return;
+            dialogWeaponTxtJaEle.innerText = buki.ja;
+            dialogWeaponTxtEnEle.innerText = buki.en;
+            dialogWeaponImgEle.src = './img/weapons/' + buki.id + '.webp';
+            dialogEle.showModal();
+            // if (this.settings.language == 'ja') alert('今日は'+buki.ja+'を使ってみませんか？');
+            // if (this.settings.language == 'en') alert('Would you like to try using ' + buki.en + ' today?');
         };
         this.getRandomWeapon = () => {
             if (this.weaponsList.length === 0) {
@@ -181,21 +187,16 @@ class BukiStars {
     filterBukiList(key, checkboxId, list) {
         const checkboxes = Array.from(document.querySelectorAll('input[name="' + checkboxId + '"]'));
         const allChecked = checkboxes.every(checkbox => checkbox.checked);
-        console.log(key);
         if (key !== 'type' && key !== 'sub' && key !== 'sp' && key !== 'season')
             return [...list];
-        console.log(key);
         if (!allChecked) {
-            console.log(key);
             const selectedTypes = checkboxes
                 .filter(checkbox => checkbox.checked)
                 .map(checkbox => checkbox.value);
-            console.log(selectedTypes);
             const filteredList = list.filter((buki) => selectedTypes.includes(buki[key]));
             this.filterOptions[key] = checkboxes
                 .filter(checkbox => checkbox.checked)
                 .map(checkbox => checkbox.value);
-            console.log(filteredList);
             return filteredList;
         }
         this.filterOptions[key] = [];
@@ -236,7 +237,6 @@ class BukiStars {
     // 設定適応
     applySettings() {
         const bodyEle = document.getElementsByTagName('body')[0];
-        console.log('ここ');
         // カラーテーマ
         const settingsThemeRadios = document.querySelectorAll('input[name="settingsTheme"]');
         settingsThemeRadios.forEach(radio => {
@@ -244,7 +244,6 @@ class BukiStars {
                 const selectedValue = radio.value;
                 this.settings.theme = selectedValue;
                 bodyEle.className = 'theme-' + selectedValue;
-                console.log(selectedValue);
             }
         });
         // モード
@@ -354,7 +353,6 @@ class BukiStars {
         for (let index = 0; index < radios.length; index++) {
             if (this.settings[key] == radios[index].value) {
                 radios[index].checked = true;
-                console.log(radios[index].value);
             }
         }
     }
@@ -385,7 +383,6 @@ function attachAllCheckboxEvents(name) {
     const target = Array.from(document.querySelectorAll('input[name="' + name + '"]'));
     target.forEach(checkbox => {
         checkbox.addEventListener('click', (event) => {
-            console.log(event.target);
             const targetCheckbox = event.target;
             if (targetCheckbox.id == 'js-' + targetCheckbox.name + '--all') {
                 target.forEach(checkbox => {
@@ -435,6 +432,7 @@ window.onload = function () {
     attachClickHandler('js-set-setting-btn-t', bukiStars.renderWeapons);
     attachClickHandler('js-set-setting-btn-b', bukiStars.renderWeapons);
     attachClickHandler('js-random-btn', bukiStars.pickRandomWeaponForToday);
+    attachClickHandler('js-random-btn2', bukiStars.pickRandomWeaponForToday);
     attachAllCheckboxEvents('weaponType');
     attachAllCheckboxEvents('weaponSubType');
     attachAllCheckboxEvents('weaponSPType');
