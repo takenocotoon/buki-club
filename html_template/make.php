@@ -5,7 +5,7 @@ $target_dir = './template';
 if (isset($argv) and count($argv)>1) {
     $target_dir = $argv[1];
 }
-$output_dir = '../website';
+$output_dir = '../docs';
 $target_name = basename($target_dir);
 $iterator = new RecursiveDirectoryIterator($target_dir);
 $iterator = new RecursiveIteratorIterator($iterator);
@@ -21,7 +21,7 @@ foreach ($iterator as $fileinfo) {
     $info = new SplFileInfo($file);
     $file = str_replace('\\', '/', $file);
     $target_file = str_replace($target_dir, $target_name, $file);
-    $output_file = str_replace($target_name, './website', $file);
+    $output_file = str_replace($target_name, './docs', $file);
     
     echo "---" . "\n";
     echo "from:";
