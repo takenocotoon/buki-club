@@ -1,0 +1,56 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Run make.php",
+            "type": "shell",
+            "command": "php",
+            "args": [ "./html_template/make.php" ],
+            "problemMatcher": [],
+            "group": "build",
+        },
+        {
+            "label": "npx webpack",
+            "type": "shell",
+            "command": "npx webpack",
+            "group": "build",
+        },
+        {
+            "label": "npx webpack watch",
+            "type": "shell",
+            "command": "npx webpack -w",
+            "group": "build",
+            // "options": {
+            //     "runOn": "folderOpen",
+            // }
+        },
+        {
+            "type": "typescript",
+            "tsconfig": "tsconfig.json",
+            "option": "watch",
+            "problemMatcher": [
+                "$tsc-watch"
+            ],
+            "group": "build",
+            "label": "tsc: ウォッチ - tsconfig.json"
+        },
+        {
+            "type": "typescript",
+            "tsconfig": "tsconfig.json",
+            "problemMatcher": [
+                "$tsc"
+            ],
+            "group": "build",
+            "label": "tsc: ビルド - tsconfig.json"
+        },
+        {
+            "label": "Start Apatch",
+            "type": "shell",
+            "command": "C://xampp/apache_start.bat",
+            "group": "build",
+            // "options": {
+            //     "runOn": "folderOpen",
+            // }
+        },
+    ]
+}

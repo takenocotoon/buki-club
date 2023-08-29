@@ -107,6 +107,14 @@ dialog {
   color: var(--txt-color);
   text-align: center;
 }
+dialog canvas {
+  z-index: -1;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+}
 
 body [lang=ja], body [lang=en] {
   display: none;

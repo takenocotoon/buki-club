@@ -78,6 +78,15 @@ dialog {
     
     color: var(--txt-color);
     text-align: center;
+    
+    canvas {
+        z-index: -1;
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+    }
 }
 
 // 多言語設定
