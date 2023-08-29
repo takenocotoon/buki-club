@@ -18,7 +18,7 @@
 ?>
 </head>
 
-<body>
+<body lang="ja">
 <div id="l-main-container">
 
 <?php
