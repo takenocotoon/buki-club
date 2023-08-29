@@ -19,12 +19,9 @@
     <link rel="icon" type="image/png" href="./favicon.png">
     <link rel="apple-touch-icon"      href="./icon.png">
     <link rel="manifest" href="./manifest.json">
-    <link rel="stylesheet" href="./css/style.css?230827142032">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css?230827142032">
-    <script type="module" src="./js/main.js?230827142032"></script>
-    <script src="./js/common.js?230827142032"></script>
-    <script src="./js/html2canvas.min.js?230827142032"></script>
-    <script src="./js/saveimg.js?230827142032"></script>
+    <link rel="stylesheet" href="./css/style.css?230829205111">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css?230829205111">
+    <script type="module" src="./js/main.js?230829205111"></script>
 </head>
 
 <body>
@@ -32,7 +29,7 @@
 
 <header>
     <h1><span lang="ja">ブキあつめ部</span><span lang="en">Weapon Collection Club</span></h1>
-    <button class="c-hamburger" onclick="openMenu()">
+    <button class="c-hamburger" id="js-hamburger">
         <span></span>
         <span></span>
         <span></span>
@@ -41,13 +38,13 @@
 <nav>
     <ul>
         <li>
-            <a href="#" onclick="openSubMenu(this);" id="js-menu--filter">
+            <a href="#" class="js-submenu" id="js-menu--filter">
                 <i class="ri-filter-fill"></i>
                 <span lang="ja">フィルタ</span>
                 <span lang="en">Filter</span>
             </a>
-            <div>
-                <button type="button" id="js-set-filer-btn-t" onclick="openMenu()">Set</button>
+                        <div>
+                <button type="button" id="js-set-filer-btn-t" class="js-set">Set</button>
                 <div class="p-filter-form">
                     <div>
                         <span lang="ja">ブキ種</span>
@@ -125,20 +122,20 @@
                     <input type="checkbox" name="weaponSeason" value="2" id="js-weaponSeason--2" checked><label for="js-weaponSeason--2"><span lang="ja">シーズン2：2022冬 Chill Season</span><span lang="en">season2:Chill Season 2022</span></label>
                     <input type="checkbox" name="weaponSeason" value="3" id="js-weaponSeason--3" checked><label for="js-weaponSeason--3"><span lang="ja">シーズン3：2023春 Fresh Season</span><span lang="en">season3:Fresh Season 2023</span></label>
                     <input type="checkbox" name="weaponSeason" value="4" id="js-weaponSeason--4" checked><label for="js-weaponSeason--4"><span lang="ja">シーズン4：2023夏 Sizzle Season</span><span lang="en">season4:Sizzle Season 2023</span></label>
-                    <input type="checkbox" name="weaponSeason" value="5" id="js-weaponSeason--5"><label for="js-weaponSeason--5"><span lang="ja">シーズン5：2023秋 Drizzle Season</span><span lang="en">season5:Drizzle Season 2022</span></label>
+                    <input type="checkbox" name="weaponSeason" value="5" id="js-weaponSeason--5"><label for="js-weaponSeason--5"><span lang="ja">シーズン5：2023秋 Drizzle Season</span><span lang="en">season5:Drizzle Season 2023</span></label>
                 </div>
-                <button type="button" id="js-set-filer-btn-b" onclick="openMenu()">Set</button>
+                <button type="button" id="js-set-filer-btn-b" class="js-set">Set</button>
                 <!-- <button type="button" id="js-set-star1-button">Clear</button> -->
             </div>
         </li>
         <li>
-            <a href="#" onclick="openSubMenu(this);" id="js-menu--settings">
+            <a href="#" class="js-submenu" id="js-menu--settings">
                 <i class="ri-settings-3-fill"></i>
                 <span lang="ja">設定</span>
                 <span lang="en">Setting</span>
             </a>
-            <div>
-                <button type="button" id="js-set-setting-btn-t" onclick="openMenu()">Set</button>
+                        <div>
+                <button type="button" id="js-set-setting-btn-t" class="js-set">Set</button>
                 <div class="p-setting-form">
                     <div>
                         <span lang="ja">カラーテーマ</span>
@@ -154,7 +151,7 @@
                 <div class="p-setting-form">
                     <div>Language</div>
                     <input type="radio" name="settingsLanguage" value="ja" id="js-settingsLanguage--ja" checked><label for="js-settingsLanguage--ja">日本語</label><input type="radio" name="settingsLanguage" value="en" id="js-settingsLanguage--en"><label for="js-settingsLanguage--en">English</label>                </div>
-                <button type="button" id="js-set-setting-btn-b" onclick="openMenu()">Set</button>
+                <button type="button" id="js-set-setting-btn-b" class="js-set">Set</button>
                 <!-- <button type="button" id="js-set-star1-button">Clear</button> -->
             </div>
         </li>
@@ -166,7 +163,7 @@
         <section id="p-buki-box">
         </section>
         
-        <button type="button" id="js-download-btn" onclick="captureImage(this);">
+        <button type="button" id="js-download-btn">
             <span id="js-download-btn--before">
                 <i class="ri-download-2-fill"></i>
                 <span lang="ja">画像として保存する</span>
@@ -197,6 +194,19 @@
         <button>OK</button>
         <!-- <button id="js-random-btn2"><span lang="ja">別のブキを探す</span><span lang="en">Pick Another Weapon</span></button> -->
     </form>
+</dialog>
+
+<dialog id="js-compleat--box">
+    <p>
+        <span id="js-compleat--mode"></span>
+        <span lang="ja">コンプリート！<br>おめでとうございます！</span>
+        <span lang="en">Complete!<br>Congratulations!</span>
+        <span id="js-compleat--count"></span>
+    </p>
+    <form method="dialog">
+        <button>OK</button>
+    </form>
+    <canvas id="js-complete--confetti"></canvas>
 </dialog>
 
 <footer><div>

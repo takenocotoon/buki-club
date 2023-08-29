@@ -4,7 +4,7 @@
         <section id="p-buki-box">
         </section>
         
-        <button type="button" id="js-download-btn" onclick="captureImage(this);">
+        <button type="button" id="js-download-btn">
             <span id="js-download-btn--before">
                 <i class="ri-download-2-fill"></i>
                 <span lang="ja">画像として保存する</span>
@@ -35,4 +35,17 @@
         <button>OK</button>
         <!-- <button id="js-random-btn2"><span lang="ja">別のブキを探す</span><span lang="en">Pick Another Weapon</span></button> -->
     </form>
+</dialog>
+
+<dialog id="js-compleat--box">
+    <p>
+        <span id="js-compleat--mode"></span>
+        <span lang="ja">コンプリート！<br>おめでとうございます！</span>
+        <span lang="en">Complete!<br>Congratulations!</span>
+        <span id="js-compleat--count"></span>
+    </p>
+    <form method="dialog">
+        <button>OK</button>
+    </form>
+    <canvas id="js-complete--confetti"></canvas>
 </dialog>

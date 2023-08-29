@@ -12,7 +12,7 @@
     $theme_color='#6695e0';
     $cssPaths=['./css/style.css', 'https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css'];
     $modulePaths=['./js/main.js'];
-    $scriptPaths=['./js/common.js', './js/html2canvas.min.js', './js/saveimg.js'];
+    $scriptPaths=[];
     $base_folder='./';
     include(__DIR__ . '/parts/head.php');
 ?>

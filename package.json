@@ -1,0 +1,14 @@
+{
+  "devDependencies": {
+    "ts-loader": "^9.4.4",
+    "typescript": "^5.2.2",
+    "webpack": "^5.88.2",
+    "webpack-cli": "^5.1.4"
+  },
+  "dependencies": {
+    "@types/canvas-confetti": "^1.6.0",
+    "@types/html2canvas": "^1.0.0",
+    "canvas-confetti": "^1.6.0",
+    "html2canvas": "^1.4.1"
+  }
+}

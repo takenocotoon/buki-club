@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+<meta charset="utf-8">
+    <title>ブキあつめ部</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="og:title" content="ブキあつめ部">
+    <meta name="description"    content="ブキの熟練度★の取得状況をメモするツール">
+    <meta name="og:description" content="ブキの熟練度★の取得状況をメモするツール">
+    <meta property="og:locale" content="ja_JP">
+    <meta property="og:type" content="website">
+    <link rel="canonical"      href="https://takenocotoon.github.io/buki-stars/">
+    <link rel="INDEX" href="./">    <meta property="og:url" content="https://takenocotoon.github.io/buki-stars/">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@takenocotoon">
+    <meta name="theme-color" content="#6695e0">
+    <meta name="og:image"          content="https://takenocotoon.github.io/buki-stars/icon.png">
+    <link rel="icon" type="image/png" href="./favicon.png">
+    <link rel="apple-touch-icon"      href="./icon.png">
+    <link rel="manifest" href="./manifest.json">
+    <link rel="stylesheet" href="./css/style.css?230829205315">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css?230829205315">
+    <script type="module" src="./js/main.js?230829205315"></script>
+</head>
+
+<body>
+<div id="l-main-container">
+
+<header>
+    <h1><span lang="ja">ブキあつめ部</span><span lang="en">Weapon Collection Club</span></h1>
+    <button class="c-hamburger" id="js-hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+</header>
+<nav>
+    <ul>
+        <li>
+            <a href="#" class="js-submenu" id="js-menu--filter">
+                <i class="ri-filter-fill"></i>
+                <span lang="ja">フィルタ</span>
+                <span lang="en">Filter</span>
+            </a>
+                        <div>
+                <button type="button" id="js-set-filer-btn-t" class="js-set">Set</button>
+                <div class="p-filter-form">
+                    <div>
+                        <span lang="ja">ブキ種</span>
+                        <span lang="en">Class</span>
+                    </div>                    <input type="checkbox" name="weaponType" id="js-weaponType--all" checked><label for="js-weaponType--all" class="p-filter-form--strong"><span lang="ja">全て</span><span lang="en">All</span></label>
+                    <input type="checkbox" name="weaponType" value="shooter" id="js-weaponType--shooter" checked><label for="js-weaponType--shooter"><span lang="ja">シューター</span><span lang="en">shooter</span></label>
+                    <input type="checkbox" name="weaponType" value="blaster" id="js-weaponType--blaster" checked><label for="js-weaponType--blaster"><span lang="ja">ブラスター</span><span lang="en">blaster</span></label>
+                    <input type="checkbox" name="weaponType" value="roller" id="js-weaponType--roller" checked><label for="js-weaponType--roller"><span lang="ja">ローラー</span><span lang="en">roller</span></label>
+                    <input type="checkbox" name="weaponType" value="brush" id="js-weaponType--brush" checked><label for="js-weaponType--brush"><span lang="ja">フデ</span><span lang="en">brush</span></label>
+                    <input type="checkbox" name="weaponType" value="charger" id="js-weaponType--charger" checked><label for="js-weaponType--charger"><span lang="ja">チャージャー</span><span lang="en">charger</span></label>
+                    <input type="checkbox" name="weaponType" value="slosher" id="js-weaponType--slosher" checked><label for="js-weaponType--slosher"><span lang="ja">スロッシャー</span><span lang="en">slosher</span></label>
+                    <input type="checkbox" name="weaponType" value="splatling" id="js-weaponType--splatling" checked><label for="js-weaponType--splatling"><span lang="ja">スピナー</span><span lang="en">splatling</span></label>
+                    <input type="checkbox" name="weaponType" value="dualies" id="js-weaponType--dualies" checked><label for="js-weaponType--dualies"><span lang="ja">マニューバー</span><span lang="en">dualies</span></label>
+                    <input type="checkbox" name="weaponType" value="brella" id="js-weaponType--brella" checked><label for="js-weaponType--brella"><span lang="ja">シェルター</span><span lang="en">brella</span></label>
+                    <input type="checkbox" name="weaponType" value="stringer" id="js-weaponType--stringer" checked><label for="js-weaponType--stringer"><span lang="ja">ストリンガー</span><span lang="en">stringer</span></label>
+                    <input type="checkbox" name="weaponType" value="splatana" id="js-weaponType--splatana" checked><label for="js-weaponType--splatana"><span lang="ja">ワイパー</span><span lang="en">splatana</span></label>
+                </div>
+                <div class="p-filter-form">
+                    <div>
+                        <span lang="ja">サブ</span>
+                        <span lang="en">Sub</span>
+                    </div>                    <input type="checkbox" name="weaponSubType" id="js-weaponSubType--all" checked><label for="js-weaponSubType--all" class="p-filter-form--strong"><span lang="ja">全て</span><span lang="en">All</span></label>
+                    <input type="checkbox" name="weaponSubType" value="splashbomb" id="js-weaponSubType--splashbomb" checked><label for="js-weaponSubType--splashbomb"><span lang="ja">スプラッシュボム</span><span lang="en">Splat Bomb</span></label>
+                    <input type="checkbox" name="weaponSubType" value="quickbomb" id="js-weaponSubType--quickbomb" checked><label for="js-weaponSubType--quickbomb"><span lang="ja">クイックボム</span><span lang="en">Burst Bomb</span></label>
+                    <input type="checkbox" name="weaponSubType" value="kyubanbomb" id="js-weaponSubType--kyubanbomb" checked><label for="js-weaponSubType--kyubanbomb"><span lang="ja">キューバンボム</span><span lang="en">Suction Bomb</span></label>
+                    <input type="checkbox" name="weaponSubType" value="curlingbomb" id="js-weaponSubType--curlingbomb" checked><label for="js-weaponSubType--curlingbomb"><span lang="ja">カーリングボム</span><span lang="en">Curling Bomb</span></label>
+                    <input type="checkbox" name="weaponSubType" value="robotbomb" id="js-weaponSubType--robotbomb" checked><label for="js-weaponSubType--robotbomb"><span lang="ja">ロボットボム</span><span lang="en">Autobomb</span></label>
+                    <input type="checkbox" name="weaponSubType" value="tansanbomb" id="js-weaponSubType--tansanbomb" checked><label for="js-weaponSubType--tansanbomb"><span lang="ja">タンサンボム</span><span lang="en">Fizzy Bomb</span></label>
+                    <input type="checkbox" name="weaponSubType" value="torpedo" id="js-weaponSubType--torpedo" checked><label for="js-weaponSubType--torpedo"><span lang="ja">トーピード</span><span lang="en">Torpedo</span></label>
+                    <input type="checkbox" name="weaponSubType" value="sprinkler" id="js-weaponSubType--sprinkler" checked><label for="js-weaponSubType--sprinkler"><span lang="ja">スプリンクラー</span><span lang="en">Sprinkler</span></label>
+                    <input type="checkbox" name="weaponSubType" value="jumpbeacon" id="js-weaponSubType--jumpbeacon" checked><label for="js-weaponSubType--jumpbeacon"><span lang="ja">ジャンプビーコン</span><span lang="en">Squid Beakon</span></label>
+                    <input type="checkbox" name="weaponSubType" value="splashshield" id="js-weaponSubType--splashshield" checked><label for="js-weaponSubType--splashshield"><span lang="ja">スプラッシュシールド</span><span lang="en">Splash Wall</span></label>
+                    <input type="checkbox" name="weaponSubType" value="trap" id="js-weaponSubType--trap" checked><label for="js-weaponSubType--trap"><span lang="ja">トラップ</span><span lang="en">Ink Mine</span></label>
+                    <input type="checkbox" name="weaponSubType" value="poisonmist" id="js-weaponSubType--poisonmist" checked><label for="js-weaponSubType--poisonmist"><span lang="ja">ポイズンミスト</span><span lang="en">Toxic Mist</span></label>
+                    <input type="checkbox" name="weaponSubType" value="pointsensor" id="js-weaponSubType--pointsensor" checked><label for="js-weaponSubType--pointsensor"><span lang="ja">ポイントセンサー</span><span lang="en">Point Sensor</span></label>
+                    <input type="checkbox" name="weaponSubType" value="linemarker" id="js-weaponSubType--linemarker" checked><label for="js-weaponSubType--linemarker"><span lang="ja">ラインマーカー</span><span lang="en">Angle Shooter</span></label>
+                </div>
+                <div class="p-filter-form">
+                    <div>
+                        <span lang="ja">スペシャル</span>
+                        <span lang="en">Special</span>
+                    </div>                    <input type="checkbox" name="weaponSPType" id="js-weaponSPType--all" checked><label for="js-weaponSPType--all" class="p-filter-form--strong"><span lang="ja">全て</span><span lang="en">All</span></label>
+                    <input type="checkbox" name="weaponSPType" value="amefurashi" id="js-weaponSPType--amefurashi" checked><label for="js-weaponSPType--amefurashi"><span lang="ja">アメフラシ</span><span lang="en">Ink Storm</span></label>
+                    <input type="checkbox" name="weaponSPType" value="ultrashot" id="js-weaponSPType--ultrashot" checked><label for="js-weaponSPType--ultrashot"><span lang="ja">ウルトラショット</span><span lang="en">Trizooka</span></label>
+                    <input type="checkbox" name="weaponSPType" value="ultrahanko" id="js-weaponSPType--ultrahanko" checked><label for="js-weaponSPType--ultrahanko"><span lang="ja">ウルトラハンコ</span><span lang="en">Ultra Stamp</span></label>
+                    <input type="checkbox" name="weaponSPType" value="energystand" id="js-weaponSPType--energystand" checked><label for="js-weaponSPType--energystand"><span lang="ja">エナジースタンド</span><span lang="en">Tacticooler</span></label>
+                    <input type="checkbox" name="weaponSPType" value="kanitank" id="js-weaponSPType--kanitank" checked><label for="js-weaponSPType--kanitank"><span lang="ja">カニタンク</span><span lang="en">Crab Tank</span></label>
+                    <input type="checkbox" name="weaponSPType" value="kyuinki" id="js-weaponSPType--kyuinki" checked><label for="js-weaponSPType--kyuinki"><span lang="ja">キューインキ</span><span lang="en">Ink Vac</span></label>
+                    <input type="checkbox" name="weaponSPType" value="greatbarrier" id="js-weaponSPType--greatbarrier" checked><label for="js-weaponSPType--greatbarrier"><span lang="ja">グレートバリア</span><span lang="en">Big Bubbler</span></label>
+                    <input type="checkbox" name="weaponSPType" value="sameride" id="js-weaponSPType--sameride" checked><label for="js-weaponSPType--sameride"><span lang="ja">サメライド</span><span lang="en">Reefslider</span></label>
+                    <input type="checkbox" name="weaponSPType" value="shokuwander" id="js-weaponSPType--shokuwander" checked><label for="js-weaponSPType--shokuwander"><span lang="ja">ショクワンダー</span><span lang="en">Zipcaster</span></label>
+                    <input type="checkbox" name="weaponSPType" value="jetpack" id="js-weaponSPType--jetpack" checked><label for="js-weaponSPType--jetpack"><span lang="ja">ジェットパック</span><span lang="en">Inkjet</span></label>
+                    <input type="checkbox" name="weaponSPType" value="tripletornado" id="js-weaponSPType--tripletornado" checked><label for="js-weaponSPType--tripletornado"><span lang="ja">トリプルトルネード</span><span lang="en">Triple Inkstrike</span></label>
+                    <input type="checkbox" name="weaponSPType" value="nicedama" id="js-weaponSPType--nicedama" checked><label for="js-weaponSPType--nicedama"><span lang="ja">ナイスダマ</span><span lang="en">Booyah Bomb</span></label>
+                    <input type="checkbox" name="weaponSPType" value="hopsonar" id="js-weaponSPType--hopsonar" checked><label for="js-weaponSPType--hopsonar"><span lang="ja">ホップソナー</span><span lang="en">Wave Breaker</span></label>
+                    <input type="checkbox" name="weaponSPType" value="missile" id="js-weaponSPType--missile" checked><label for="js-weaponSPType--missile"><span lang="ja">マルチミサイル</span><span lang="en">Tenta Missiles</span></label>
+                    <input type="checkbox" name="weaponSPType" value="megaphone51" id="js-weaponSPType--megaphone51" checked><label for="js-weaponSPType--megaphone51"><span lang="ja">メガホンレーザー5.1ch</span><span lang="en">Killer Wail 5.1</span></label>
+                    <input type="checkbox" name="weaponSPType" value="decoy" id="js-weaponSPType--decoy" checked><label for="js-weaponSPType--decoy"><span lang="ja">デコイチラシ</span><span lang="en">Super Chump</span></label>
+                    <input type="checkbox" name="weaponSPType" value="teioika" id="js-weaponSPType--teioika" checked><label for="js-weaponSPType--teioika"><span lang="ja">テイオウイカ</span><span lang="en">Kraken Royale</span></label>
+                </div>
+                <div class="p-filter-form">
+                    <div>
+                        <span lang="ja">オプション</span>
+                        <span lang="en">Option</span>
+                    </div>                    <input type="checkbox" name="weaponOption--minor" value="true" id="js-weaponOption--minor" checked><label for="js-weaponOption--minor"><span lang="ja">マイナーチェンジブキ</span><span lang="en">Variant Weapons</span></label>
+                    <input type="checkbox" name="weaponOption--scope" value="true" id="js-weaponOption--scope" checked><label for="js-weaponOption--scope"><span lang="ja">スコープ</span><span lang="en">Scopes</span></label>
+                    <input type="checkbox" name="weaponOption--hero" value="true" id="js-weaponOption--hero" checked><label for="js-weaponOption--hero"><span lang="ja">ヒーローブキ</span><span lang="en">Hero Weapons</span></label>
+                </div>
+                <div class="p-filter-form">
+                    <div>
+                        <span lang="ja">シーズン</span>
+                        <span lang="en">Season</span>
+                    </div>                    <input type="checkbox" name="weaponSeason" id="js-weaponSeason--all"><label for="js-weaponSeason--all" class="p-filter-form--strong"><span lang="ja">全て</span><span lang="en">All</span></label>
+                    <input type="checkbox" name="weaponSeason" value="0" id="js-weaponSeason--0" checked><label for="js-weaponSeason--0"><span lang="ja">シーズン1：2022秋 Drizzle Season</span><span lang="en">season1:Drizzle Season 2022</span></label>
+                    <input type="checkbox" name="weaponSeason" value="2" id="js-weaponSeason--2" checked><label for="js-weaponSeason--2"><span lang="ja">シーズン2：2022冬 Chill Season</span><span lang="en">season2:Chill Season 2022</span></label>
+                    <input type="checkbox" name="weaponSeason" value="3" id="js-weaponSeason--3" checked><label for="js-weaponSeason--3"><span lang="ja">シーズン3：2023春 Fresh Season</span><span lang="en">season3:Fresh Season 2023</span></label>
+                    <input type="checkbox" name="weaponSeason" value="4" id="js-weaponSeason--4" checked><label for="js-weaponSeason--4"><span lang="ja">シーズン4：2023夏 Sizzle Season</span><span lang="en">season4:Sizzle Season 2023</span></label>
+                    <input type="checkbox" name="weaponSeason" value="5" id="js-weaponSeason--5"><label for="js-weaponSeason--5"><span lang="ja">シーズン5：2023秋 Drizzle Season</span><span lang="en">season5:Drizzle Season 2023</span></label>
+                </div>
+                <button type="button" id="js-set-filer-btn-b" class="js-set">Set</button>
+                <!-- <button type="button" id="js-set-star1-button">Clear</button> -->
+            </div>
+        </li>
+        <li>
+            <a href="#" class="js-submenu" id="js-menu--settings">
+                <i class="ri-settings-3-fill"></i>
+                <span lang="ja">設定</span>
+                <span lang="en">Setting</span>
+            </a>
+                        <div>
+                <button type="button" id="js-set-setting-btn-t" class="js-set">Set</button>
+                <div class="p-setting-form">
+                    <div>
+                        <span lang="ja">カラーテーマ</span>
+                        <span lang="en">Color Scheme</span>
+                    </div>
+                    <input type="radio" name="settingsTheme" value="lite" id="js-settingsTheme--lite" checked><label for="js-settingsTheme--lite"><span lang="ja">ライト</span><span lang="en">Lite</span></label><input type="radio" name="settingsTheme" value="dark" id="js-settingsTheme--dark"><label for="js-settingsTheme--dark"><span lang="ja">ダーク</span><span lang="en">Dark</span></label>                </div>
+                <div class="p-setting-form">
+                    <div>
+                        <span lang="ja">モード</span>
+                        <span lang="en">Mode</span>
+                    </div>
+                    <input type="radio" name="settingsMode" value="0" id="js-settingsMode--0"><label for="js-settingsMode--0"><span lang="ja">ライセンスあつめ部</span><span lang="en">License Collection</span></label><input type="radio" name="settingsMode" value="1" id="js-settingsMode--1" checked><label for="js-settingsMode--1"><span lang="ja">ブキステッカーあつめ部</span><span lang="en">Sticker Collection</span></label><input type="radio" name="settingsMode" value="2" id="js-settingsMode--2"><label for="js-settingsMode--2"><span lang="ja">ホロブキステッカーあつめ部</span><span lang="en">Holo Sticker Collection</span></label><input type="radio" name="settingsMode" value="3" id="js-settingsMode--3"><label for="js-settingsMode--3"><span lang="ja">ブキバッジあつめ部</span><span lang="en">Badge Collection</span></label><input type="radio" name="settingsMode" value="4" id="js-settingsMode--4"><label for="js-settingsMode--4"><span lang="ja">金バッジあつめ部</span><span lang="en">Golden Badge Collection</span></label>                </div>
+                <div class="p-setting-form">
+                    <div>Language</div>
+                    <input type="radio" name="settingsLanguage" value="ja" id="js-settingsLanguage--ja" checked><label for="js-settingsLanguage--ja">日本語</label><input type="radio" name="settingsLanguage" value="en" id="js-settingsLanguage--en"><label for="js-settingsLanguage--en">English</label>                </div>
+                <button type="button" id="js-set-setting-btn-b" class="js-set">Set</button>
+                <!-- <button type="button" id="js-set-star1-button">Clear</button> -->
+            </div>
+        </li>
+    </ul>
+</nav>
+
+<main><div>
+    <article>
+        <section id="p-buki-box">
+        </section>
+        
+        <button type="button" id="js-download-btn">
+            <span id="js-download-btn--before">
+                <i class="ri-download-2-fill"></i>
+                <span lang="ja">画像として保存する</span>
+                <span lang="en">Save as Image</span>
+            </span>
+            <span id="js-download-btn--processing" style="display:none;"><i class="ri-hourglass-line"></i> 画像生成中</span>
+        </button>
+        <button type="button" id="js-clear-btn">
+            <i class="ri-loader-2-line"></i>
+            <span lang="ja">リセット</span>
+            <span lang="en">Reset</span>
+        </button>
+        <button type="button" id="js-random-btn">
+            <i class="ri-magic-fill"></i>
+            <span lang="ja">今日のブキ</span>
+            <span lang="en">Today's Weapon</span>
+        </button>
+    </article>
+</div></main>
+
+<dialog id="js-random-weapon--box">
+    <p>
+        <span lang="ja">今日は <span id="js-random-weapon--nameJa"></span> を使ってみませんか？</span>
+        <span lang="en">Would you like to try using <span id="js-random-weapon--nameEn"></span> today?</span>
+    </p>
+    <img src="./img/weapons/--.webp" id="js-random-weapon--img">
+    <form method="dialog">
+        <button>OK</button>
+        <!-- <button id="js-random-btn2"><span lang="ja">別のブキを探す</span><span lang="en">Pick Another Weapon</span></button> -->
+    </form>
+</dialog>
+
+<dialog id="js-compleat--box">
+    <p>
+        <span id="js-compleat--mode"></span>
+        <span lang="ja">コンプリート！<br>おめでとうございます！</span>
+        <span lang="en">Complete!<br>Congratulations!</span>
+        <span id="js-compleat--count"></span>
+    </p>
+    <form method="dialog">
+        <button>OK</button>
+    </form>
+    <canvas id="js-complete--confetti"></canvas>
+</dialog>
+
+<footer><div>
+    <address>
+        <a href="https://twitter.com/takenocotoon" target="_blank" rel="noopener" class="c-no-underline"><i class="ri-twitter-fill"></i></a>
+        <a href="https://ika.queloud.net/@takenocotoon" target="_blank" rel="noopener" class="c-no-underline"><i class="ri-mastodon-fill"></i></a>
+        <!-- <a href="https://github.com/takenocotoon" target="_blank" rel="noopener" class="c-no-underline"><i class="ri-github-fill"></i></a> -->
+        @takenocotoon
+    </address>
+</div></footer>
+
+</div>
+</body>
+
+</html>
