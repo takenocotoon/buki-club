@@ -9,12 +9,10 @@ function main() {
     bukiBox.renderWeapons();
     
     attachClickHandler('js-hamburger', openMenu);
-    // attachClickHandler('js-hamburger', openMenu);
     
     attachClickHandler('js-download-btn', captureImage);
     attachClickHandler('js-clear-btn', bukiBox.resetWeapons);
     
-    // attachClickHandler('js-clear-btn', () => hideSubMenu('js-menu--filter'));
     const subMenus = document.getElementsByClassName('js-submenu');
     Array.from(subMenus).forEach(target => {
         attachClickHandler(target.id, () => openSubMenu(target));
@@ -25,11 +23,15 @@ function main() {
     });
     
     attachClickHandler('js-random-btn', pickRandomWeaponForToday);
-    // attachClickHandler('js-random-btn2', pickRandomWeaponForToday);
     bukiForms.attachAllCheckboxEvents('weaponType');
     bukiForms.attachAllCheckboxEvents('weaponSubType');
     bukiForms.attachAllCheckboxEvents('weaponSPType');
     bukiForms.attachAllCheckboxEvents('weaponSeason');
+    
+    attachClickHandler('js-saveDataSlot-btn', bukiForms.saveToSlot);
+    attachClickHandler('js-loadDataSlot-btn', bukiForms.loadFromSlot);
+    attachClickHandler('js-saveJson-btn', bukiForms.export);
+    attachClickHandler('js-loadJson-btn', bukiForms.import);
 }
 
 window.onload = main;

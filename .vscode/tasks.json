@@ -20,9 +20,9 @@
             "type": "shell",
             "command": "npx webpack -w",
             "group": "build",
-            // "options": {
-            //     "runOn": "folderOpen",
-            // }
+            "options": {
+                "runOn": "folderOpen",
+            }
         },
         {
             "type": "typescript",
@@ -48,9 +48,9 @@
             "type": "shell",
             "command": "C://xampp/apache_start.bat",
             "group": "build",
-            // "options": {
-            //     "runOn": "folderOpen",
-            // }
+            "options": {
+                "runOn": "folderOpen",
+            }
         },
     ]
 }

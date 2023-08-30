@@ -19,9 +19,9 @@
     <link rel="icon" type="image/png" href="./favicon.png">
     <link rel="apple-touch-icon"      href="./icon.png">
     <link rel="manifest" href="./manifest.json">
-    <link rel="stylesheet" href="./css/style.css?230829210426">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css?230829210426">
-    <script type="module" src="./js/main.js?230829210426"></script>
+    <link rel="stylesheet" href="./css/style.css?230830175234">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css?230830175234">
+    <script type="module" src="./js/main.js?230830175234"></script>
 </head>
 
 <body lang="ja">
@@ -152,6 +152,47 @@
                     <div>Language</div>
                     <input type="radio" name="settingsLanguage" value="ja" id="js-settingsLanguage--ja" checked><label for="js-settingsLanguage--ja">日本語</label><input type="radio" name="settingsLanguage" value="en" id="js-settingsLanguage--en"><label for="js-settingsLanguage--en">English</label>                </div>
                 <button type="button" id="js-set-setting-btn-b" class="js-set">Set</button>
+            </div>
+        </li>
+        <li>
+            <a href="#" class="js-submenu" id="js-menu--backup">
+                <i class="ri-file-download-fill"></i>
+                <span lang="ja">バックアップ</span>
+                <span lang="en">Backup</span>
+            </a>
+            <div>
+                <div class="p-setting-form">
+                    <div>
+                        <span lang="ja">データ保存スロット</span>
+                        <span lang="en">Data Storage Slots</span>
+                    </div>
+                    <input type="radio" name="saveDataSlot" value="1" id="js-saveDataSlot--1"><label for="js-saveDataSlot--1">1</label><input type="radio" name="saveDataSlot" value="2" id="js-saveDataSlot--2"><label for="js-saveDataSlot--2">2</label><input type="radio" name="saveDataSlot" value="3" id="js-saveDataSlot--3"><label for="js-saveDataSlot--3">3</label>                        <button type="button" id="js-saveDataSlot-btn">
+                            <span lang="ja">保存</span>
+                            <span lang="en">Save</span>
+                        </button>
+                        <button type="button" id="js-loadDataSlot-btn">
+                            <span lang="ja">復元</span>
+                            <span lang="en">Restore</span>
+                        </button>
+                </div>
+                <div class="p-setting-form">
+                    <div>
+                        Export
+                    </div>
+                        <button type="button" id="js-saveJson-btn">
+                            <span lang="ja">バックアップデータをダウンロード</span>
+                            <span lang="en">Download Backup Data</span>
+                        </button>
+                </div>
+                <div class="p-setting-form">
+                    <div>
+                        Import
+                    </div>
+                        <input type="file" id="js-loadJson-input"><button type="button" id="js-loadJson-btn">
+                            <span lang="ja">ファイルからデータを読み込む</span>
+                            <span lang="en">Load Data from File</span>
+                        </button>
+                </div>
                 <!-- <button type="button" id="js-set-star1-button">Clear</button> -->
             </div>
         </li>
