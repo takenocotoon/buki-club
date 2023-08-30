@@ -328,6 +328,10 @@ nav > ul > li > div {
     background: transparent;
   }
 }
+nav > ul > li > div > button {
+  width: 100%;
+  margin-bottom: 3rem;
+}
 nav > ul > li > a:active + div, nav > ul > li > a.is_active + div {
   transform: scaleY(1);
   display: block;
@@ -344,10 +348,6 @@ nav > ul > li > a.is_not_active + div {
   transform: scaleY(0);
   display: none;
   opacity: 0;
-}
-nav > ul > li button {
-  width: 100%;
-  margin-bottom: 3rem;
 }
 
 body.theme-dark nav > ul > li > a:link, body.theme-dark nav > ul > li > a:visited {

@@ -16,5 +16,13 @@
             </a>
             <?php include(__DIR__ . '/menu-settings.php'); ?>
         </li>
+        <li>
+            <a href="#" class="js-submenu" id="js-menu--backup">
+                <i class="ri-file-download-fill"></i>
+                <span lang="ja">バックアップ</span>
+                <span lang="en">Backup</span>
+            </a>
+            <?php include(__DIR__ . '/menu-backup.php'); ?>
+        </li>
     </ul>
 </nav>

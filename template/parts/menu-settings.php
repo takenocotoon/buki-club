@@ -59,5 +59,4 @@
                         } ?>
                 </div>
                 <button type="button" id="js-set-setting-btn-b" class="js-set">Set</button>
-                <!-- <button type="button" id="js-set-star1-button">Clear</button> -->
             </div>

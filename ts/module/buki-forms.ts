@@ -2,7 +2,7 @@
 import { bukiStars } from './buki-stars';
 import { bukiBox } from './buki-box';
 import { closeMenu } from './common';
-import { localStorageData } from './local-storage';
+import { localStorageData, getLocalStorageData, saveLocalStorageData, localStorageKey } from './local-storage';
 import { applySettings } from './apply-settings';
 import { applyWeaponFilters } from './apply-filters';
 
@@ -35,6 +35,135 @@ class BukiForms {
     }
     
     
+    saveToSlot = () => {
+        for (let index = 1; index <= 3; index++) {
+            const slotRadioEle:HTMLInputElement|null = document.getElementById('js-saveDataSlot--'+index) as HTMLInputElement
+            if (!slotRadioEle || slotRadioEle.checked == false) continue;
+            let result = false;
+            if (bukiStars.settings.language == 'ja') {
+                result = window.confirm(`スロット${index}にデータを上書き保存します。`);
+            } else if (bukiStars.settings.language == 'en') {
+                result = window.confirm(`Data will be overwritten and saved in Slot ${index}.`);
+            }
+            if (!result) return;
+            saveLocalStorageData(localStorageKey + '-' + index);
+            break;
+        }
+    }
+    
+    
+    loadFromSlot = () => {
+        for (let index = 1; index <= 3; index++) {
+            const slotRadioEle:HTMLInputElement|null = document.getElementById('js-saveDataSlot--'+index) as HTMLInputElement
+            if (!slotRadioEle || slotRadioEle.checked == false) continue;
+            let result = false;
+            if (bukiStars.settings.language == 'ja') {
+                result = window.confirm(`スロット${index}からデータを復元します。現在のデータは失われます。`);
+            } else if (bukiStars.settings.language == 'en') {
+                result = window.confirm(`Do you want to restore data from Slot ${index}? Current data will be lost.`);
+            }
+            if (!result) return;
+            const newLocalStorageData = getLocalStorageData(localStorageKey + '-' + index);
+            if (newLocalStorageData.hasOwnProperty('markedWeapons')) {
+                bukiStars.markedWeapons = { ...newLocalStorageData['markedWeapons'] };
+            }
+            if (newLocalStorageData.hasOwnProperty('filterOptions')) {
+                bukiStars.filterOptions = { ...newLocalStorageData['filterOptions'] };
+            }
+            if (newLocalStorageData.hasOwnProperty('settings')) {
+                bukiStars.settings = { ...newLocalStorageData['settings'] };
+            }
+            this.restoreFormData();
+            this.save();
+            break;
+        }
+    }
+    
+    
+    export = () => {
+        const jsonData = JSON.stringify(getLocalStorageData(), null, 2);
+        const blob = new Blob([jsonData], { type: 'application/json' });
+        const url = URL.createObjectURL(blob);
+        
+        const now = new Date();
+        const options: Intl.DateTimeFormatOptions = {
+            year: '2-digit', month: '2-digit', day: '2-digit',
+            hour: '2-digit', minute: '2-digit', second: '2-digit',
+            timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone
+        };
+        const formattedDate = now.toLocaleDateString(undefined, options).replace(/[/:,\s]/g, '');
+        const filename = `buki-club_${formattedDate}.json`;
+        
+        const downloadLink = document.createElement('a');
+        
+        downloadLink.href = url;
+        downloadLink.download = filename;
+        document.body.appendChild(downloadLink);
+        downloadLink.click();
+        document.body.removeChild(downloadLink);
+    }
+    
+    
+    import = () => {
+        const loadJsonInput:HTMLInputElement|null = document.getElementById('js-loadJson-input') as HTMLInputElement;
+        if (!loadJsonInput) return;
+        
+        loadJsonInput.addEventListener('change', (event) => {
+            if (!event.target) return;
+            const selectFileEle = event.target as HTMLInputElement;
+            const selectedFile = selectFileEle.files![0];
+            if (selectedFile) {
+                // ファイルを読み込む
+                const fileReader = new FileReader();
+                fileReader.onload = (event) => {
+                    const target = event.target as FileReader;
+                    if (!target) return;
+                    const fileContent = target.result;
+                    try {
+                        const newLocalStorageData = JSON.parse(fileContent as string);
+                        if (newLocalStorageData.hasOwnProperty('markedWeapons')) {
+                            bukiStars.markedWeapons = { ...newLocalStorageData['markedWeapons'] };
+                        }
+                        if (newLocalStorageData.hasOwnProperty('filterOptions')) {
+                            bukiStars.filterOptions = { ...newLocalStorageData['filterOptions'] };
+                        }
+                        if (newLocalStorageData.hasOwnProperty('settings')) {
+                            bukiStars.settings = { ...newLocalStorageData['settings'] };
+                        }
+                        this.restoreFormData();
+                        this.save();
+                        selectFileEle.value = '';
+                    } catch (error) {
+                        console.error('Error while parsing JSON file:', error);
+                    }
+                };
+                fileReader.readAsText(selectedFile);
+            }
+        });
+        loadJsonInput.click();
+    }
+    
+    
+    isLocalStorageData(data: any) {
+        // ここで型のチェックを行う
+        return (
+            typeof data === 'object' &&
+            typeof data.markedWeapons === 'object' &&
+            Array.isArray(data.filterOptions.type) &&
+            Array.isArray(data.filterOptions.sub) &&
+            Array.isArray(data.filterOptions.sp) &&
+            Array.isArray(data.filterOptions.season) &&
+            typeof data.filterOptions.minor === 'boolean' &&
+            typeof data.filterOptions.scope === 'boolean' &&
+            typeof data.filterOptions.hero === 'boolean' &&
+            typeof data.settings === 'object' &&
+            typeof data.settings.theme === 'string' &&
+            typeof data.settings.mode === 'number' &&
+            typeof data.settings.language === 'string'
+        );
+    }
+    
+    
     // フォーム復元
     restoreFormData = () => {
         this.restoreFilterFormData();
@@ -60,19 +189,26 @@ class BukiForms {
         if (key !== 'type' && key !== 'sub' && key !== 'sp' && key !== 'season') return;
         if (!Array.isArray(bukiStars.filterOptions[key])) {
             bukiStars.filterOptions[key] = [] as string[];
-            return;
         }
-        if (bukiStars.filterOptions[key].length<1) return;
         
         const checkboxes = Array.from(document.querySelectorAll<HTMLInputElement>('input[name="'+checkboxId+'"]'));
-        
         const checkBoxALL:HTMLInputElement = document.getElementById('js-'+checkboxId+'--all') as HTMLInputElement;
         if (!checkBoxALL) return;
+        
+        if (bukiStars.filterOptions[key].length<1){
+            for (let index=0; index<checkboxes.length; index++) {
+                checkboxes[index].checked = true;
+            }
+            return;
+        }
+        
         checkBoxALL.checked = false;
         
         for (let index=0; index<checkboxes.length; index++) {
             if (!bukiStars.filterOptions[key].includes(checkboxes[index].value)) {
                 checkboxes[index].checked = false;
+            } else {
+                checkboxes[index].checked = true;
             }
         }
     }
@@ -81,9 +217,11 @@ class BukiForms {
     // チェックボックス
     private restoreCheckbox = (key: string) => {
         if (key !== 'minor' && key !== 'scope' && key !== 'hero') return;
+        const checkbox: HTMLInputElement = document.getElementById('js-weaponOption--'+key) as HTMLInputElement;
         if (!bukiStars.filterOptions[key]) {
-            const checkbox: HTMLInputElement = document.getElementById('js-weaponOption--'+key) as HTMLInputElement;
             checkbox.checked = false;
+        } else {
+            checkbox.checked = true;
         }
     }
     

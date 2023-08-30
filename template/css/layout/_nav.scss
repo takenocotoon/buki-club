@@ -159,6 +159,11 @@ nav {
                     margin-top: 0;
                     background: transparent;
                 }
+                
+                > button {
+                    width: 100%;
+                    margin-bottom: 3rem;
+                }
             }
             
             >a:active + div,  >a.is_active + div{
@@ -177,11 +182,6 @@ nav {
                 transform: scaleY(0);
                 display: none;
                 opacity: 0;
-            }
-            
-            button {
-                width: 100%;
-                margin-bottom: 3rem;
             }
         }
     }

@@ -2,8 +2,8 @@ import { bukiStars } from './buki-stars';
 export const localStorageKey = 'buki-stars';
 
 
-export function getLocalStorageData(): any | null {
-    const jsonData = localStorage.getItem(localStorageKey);
+export function getLocalStorageData(key: string = localStorageKey): any | null {
+    const jsonData = localStorage.getItem(key);
     if (jsonData) {
         try {
             const parsedData = JSON.parse(jsonData);
@@ -17,10 +17,10 @@ export function getLocalStorageData(): any | null {
 }
 
 
-export function saveLocalStorageData() {
+export function saveLocalStorageData(key: string = localStorageKey) {
     try {
         // let json = JSON.stringify(localStorageData);
-        localStorage.setItem(localStorageKey, JSON.stringify({
+        localStorage.setItem(key, JSON.stringify({
             'markedWeapons':bukiStars.markedWeapons,
             'filterOptions':bukiStars.filterOptions,
             'settings':bukiStars.settings,
