@@ -148,7 +148,7 @@
                         foreach ($weaponSeason as $id => $name) {
                             echo "                    ";
                             echo "<input type=\"checkbox\" name=\"weaponSeason\" value=\"{$id}\" id=\"js-weaponSeason--{$id}\"";
-                            if ($id!='5') echo " checked";
+                            echo " checked";
                             echo ">";
                             echo "<label for=\"js-weaponSeason--{$id}\">";
                             echo "<span lang=\"ja\">{$name[0]}</span>";
