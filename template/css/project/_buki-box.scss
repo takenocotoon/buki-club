@@ -62,7 +62,7 @@
 
 #p-buki-box .p-tr > div.p-done {
     &.is-done {
-        background-color: rgba(var(--button-bgcolor-rgb), 0.2);
+        background-color: rgba(var(--btn-rgb-color), 0.2);
         border-radius: 50%;
     }
     

@@ -6,7 +6,8 @@
                         <span lang="en">Color Scheme</span>
                     </div><?php 
                         $settingsTheme = array(
-                            'lite' => ['ライト', 'Lite'],
+                            'default' => ['システム設定に従う', 'Follow System Setting'],
+                            'light' => ['ライト', 'Light'],
                             'dark' => ['ダーク', 'Dark'],
                             // 'splat' => ['スプラ', 'Splat'],
                         );

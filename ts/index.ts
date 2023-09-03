@@ -32,6 +32,14 @@ function main() {
     attachClickHandler('js-loadDataSlot-btn', bukiForms.loadFromSlot);
     attachClickHandler('js-saveJson-btn', bukiForms.export);
     attachClickHandler('js-loadJson-btn', bukiForms.import);
+    
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('../sw.js').then(function(registration) {
+            console.log('ServiceWorker の登録に成功しました。スコープ: ', registration.scope);
+        }).catch(function(error) {
+            console.log('ServiceWorker の登録に失敗しました。', error);
+        });
+    }
 }
 
 window.onload = main;

@@ -1,42 +1,49 @@
-body {
-    --main-color: #6695e0;
-    --accent-color: #ff8587;
-    
-    --base-bgcolor1: #ECECEC;
-    --base-bgcolor1-rgb: 236, 236, 236;
-    --base-bgcolor2: #ffffff;
-    --base-bgcolor2-rgb: 255, 255, 255;
-    
-    --border-color: #cccccc;
-    
-    --txt-color-on-main: #FFF;
-    --txt-color: #333333;
-    --txt-link-color: #3a66ac;
-    --txt-link-color-rgb: 58, 102, 172;
-    
-    --button-bgcolor: #3a66ac;
-    --button-bgcolor-rgb: 58, 102, 172;
-    --button-bgcolor-active: #6695e0;
-    --button-txt-color: #FFF;
+/** テーマ設定 **/
+$schemes: light, dark;
+$default-scheme: light;
+$scheme-colors: (
+    main:        (#6695E0, #1C1C27),
+    accent:      (#FF8587, #7F5AF0),
+    disable:     (#999999, #999999),
+    border:      (#CCCCCC, #CCCCCC),
+    txt:         (#333333, #ECECEC),
+    txt-on-main: (#E0E0E0, #E0E0E0),
+    txt-link:    (#3a66ac, #73757a),
+    bg:          (#ECECEC, #2d2b2e),
+    bg-front:    (#ECECEC, #2d2b2e),
+    bg-back :    (#ffffff, #16161a),
+    btn:         (#3a66ac, #575a63),
+    btn-txt:     (#ffffff, #e0e0e0),
+    btn-active:  (#6695e0, #3e248b),
+    btn-disable: (#DDDDDD, #333333),
+);
+
+@mixin themes($scheme) {
+    @each $name, $colors in $scheme-colors {
+        $color: nth($colors, index($schemes, $scheme));
+        $r: red($color);
+        $g: green($color);
+        $b: blue($color);
+        --#{$name}-color: #{$color};
+        --#{$name}-rgb-color: #{$r, $g, $b};
+    }
 }
-body.theme-dark {
-    --main-color: #1c1c27;
-    --accent-color: #7f5af0;
+
+@each $scheme in $schemes {
+    @if $scheme == dark {
+        @media (prefers-color-scheme: #{$scheme}) {
+            body {
+                @include themes($scheme);
+            }
+        }
+    }
+    @if $scheme == light {
+        body {
+            @include themes($scheme);
+        }
+    }
     
-    --base-bgcolor1: #2d2b2e;
-    --base-bgcolor1-rgb: 45, 43, 46;
-    --base-bgcolor2: #16161a;
-    --base-bgcolor2-rgb: 22, 22, 26;
-    
-    --border-color: #cccccc;
-    
-    --txt-color-on-main: #e0e0e0;
-    --txt-color: #ECECEC;
-    --txt-link-color: #73757a;
-    --txt-link-color-rgb: 87, 90, 99;
-    
-    --button-bgcolor: #575a63;
-    --button-bgcolor-rgb: 87, 90, 99;
-    --button-bgcolor-active: #3e248b;
-    --button-txt-color: #e0e0e0;
+    body.theme-#{$scheme} {
+        @include themes($scheme);
+    }
 }

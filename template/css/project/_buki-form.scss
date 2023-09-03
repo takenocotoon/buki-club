@@ -23,7 +23,7 @@
         line-height: 1.7rem;
         margin: 0.3rem;
         padding: 0.5rem 1rem;
-        background-color: rgba(#FFF, 0.9);
+        background-color: rgba(var(--btn-disable-rgb-color), 0.9);
         
         border: 2px solid var(--txt-link-color);
         border-radius: 1rem;
@@ -43,7 +43,7 @@
         }
     }
     input[type=checkbox]:checked + label, input[type=radio]:checked + label {
-        background-color: var(--button-bgcolor);
+        background-color: var(--btn-color);
         color: #FFF;
         &.p-filter-form--strong {
             background-color: var(--accent-color);
@@ -54,33 +54,33 @@
         
         @include mq('pc') {
             margin: 0.3rem 0;
-            border-right: 1px solid rgba(var(--button-bgcolor-rgb), 0.2);
-            border-left: 1px solid rgba(var(--button-bgcolor-rgb), 0.2);
-            border-top: 2px solid var(--button-bgcolor);
-            border-bottom: 2px solid var(--button-bgcolor);
+            border-right: 1px solid rgba(var(--btn-rgb-color), 0.2);
+            border-left: 1px solid rgba(var(--btn-rgb-color), 0.2);
+            border-top: 2px solid var(--btn-color);
+            border-bottom: 2px solid var(--btn-color);
             &:first-of-type {
                 border-radius: 1rem 0 0 1rem;
-                border-left: 2px solid var(--button-bgcolor);
+                border-left: 2px solid var(--btn-color);
             }
             &:last-of-type {
                 border-radius: 0 1rem 1rem 0;
-                border-right: 2px solid var(--button-bgcolor);
+                border-right: 2px solid var(--btn-color);
             }
         }
         @include mq('sp') {
             width: 100%;
             margin: 0 0.3rem;
-            border-top: 1px solid rgba(var(--button-bgcolor-rgb), 0.2);
-            border-bottom: 1px solid rgba(var(--button-bgcolor-rgb), 0.2);
-            border-right: 2px solid var(--button-bgcolor);
-            border-left: 2px solid var(--button-bgcolor);
+            border-top: 1px solid rgba(var(--btn-rgb-color), 0.2);
+            border-bottom: 1px solid rgba(var(--btn-rgb-color), 0.2);
+            border-right: 2px solid var(--btn-color);
+            border-left: 2px solid var(--btn-color);
             &:first-of-type {
                 border-radius: 1rem 1rem 0 0;
-                border-top: 2px solid var(--button-bgcolor);
+                border-top: 2px solid var(--btn-color);
             }
             &:last-of-type {
                 border-radius: 0 0 1rem 1rem;
-                border-bottom: 2px solid var(--button-bgcolor);
+                border-bottom: 2px solid var(--btn-color);
             }
         }
     }

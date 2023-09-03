@@ -10,7 +10,7 @@
     $url='https://takenocotoon.github.io/buki-stars/';
     $twitter='@takenocotoon';
     $theme_color='#6695e0';
-    $cssPaths=['./css/style.css', 'https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css'];
+    $cssPaths=['./css/style.css', './remixicon/remixicon.css'];
     $modulePaths=['./js/main.js'];
     $scriptPaths=[];
     $base_folder='./';

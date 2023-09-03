@@ -14,7 +14,7 @@ nav {
         height: auto;
         min-height: 100%;
         
-        background: rgba(var(--base-bgcolor1-rgb), 0.95);
+        background: rgba(var(--bg-front-rgb-color), 0.95);
         margin: 0;
         padding: 5rem 1rem;
         opacity: 0;
@@ -88,14 +88,14 @@ nav {
                     border-radius: 0.5rem;
                     
                     &:link, &:visited {
-                        color: var(--txt-color-on-main);
+                        color: var(--txt-on-main-color);
                     }
                     &:active, &.is_active {
-                        background: rgba(var(--button-bgcolor-rgb), 0.5);
+                        background: rgba(var(--btn-rgb-color), 0.5);
                     }
                     @media (any-hover:hover) {
                         &:hover {
-                            background: rgba(var(--button-bgcolor-rgb), 0.5);
+                            background: rgba(var(--btn-rgb-color), 0.5);
                         }
                     }
                 }
@@ -151,7 +151,7 @@ nav {
                     right: 0;
                     max-width: 1200px;
                     padding: 0.5rem 5rem 5rem;
-                    background: rgba(var(--base-bgcolor1-rgb), 0.95);
+                    background: rgba(var(--bg-front-rgb-color), 0.95);
                 }
                 @include mq('sp') {
                     position: relative;
@@ -188,7 +188,7 @@ nav {
 }
 body.theme-dark nav >ul >li >a {
     &:link, &:visited {
-        color: var(--txt-color-on-main);
+        color: var(--txt-on-main-color);
     }
 }
 

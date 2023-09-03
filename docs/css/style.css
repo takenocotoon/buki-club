@@ -1,39 +1,129 @@
 @charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c&display=swap");
+/** テーマ設定 **/
 body {
-  --main-color: #6695e0;
-  --accent-color: #ff8587;
-  --base-bgcolor1: #ECECEC;
-  --base-bgcolor1-rgb: 236, 236, 236;
-  --base-bgcolor2: #ffffff;
-  --base-bgcolor2-rgb: 255, 255, 255;
-  --border-color: #cccccc;
-  --txt-color-on-main: #FFF;
+  --main-color: #6695E0;
+  --main-rgb-color: 102, 149, 224;
+  --accent-color: #FF8587;
+  --accent-rgb-color: 255, 133, 135;
+  --disable-color: #999999;
+  --disable-rgb-color: 153, 153, 153;
+  --border-color: #CCCCCC;
+  --border-rgb-color: 204, 204, 204;
   --txt-color: #333333;
+  --txt-rgb-color: 51, 51, 51;
+  --txt-on-main-color: #E0E0E0;
+  --txt-on-main-rgb-color: 224, 224, 224;
   --txt-link-color: #3a66ac;
-  --txt-link-color-rgb: 58, 102, 172;
-  --button-bgcolor: #3a66ac;
-  --button-bgcolor-rgb: 58, 102, 172;
-  --button-bgcolor-active: #6695e0;
-  --button-txt-color: #FFF;
+  --txt-link-rgb-color: 58, 102, 172;
+  --bg-color: #ECECEC;
+  --bg-rgb-color: 236, 236, 236;
+  --bg-front-color: #ECECEC;
+  --bg-front-rgb-color: 236, 236, 236;
+  --bg-back-color: #ffffff;
+  --bg-back-rgb-color: 255, 255, 255;
+  --btn-color: #3a66ac;
+  --btn-rgb-color: 58, 102, 172;
+  --btn-txt-color: #ffffff;
+  --btn-txt-rgb-color: 255, 255, 255;
+  --btn-active-color: #6695e0;
+  --btn-active-rgb-color: 102, 149, 224;
+  --btn-disable-color: #DDDDDD;
+  --btn-disable-rgb-color: 221, 221, 221;
 }
 
+body.theme-light {
+  --main-color: #6695E0;
+  --main-rgb-color: 102, 149, 224;
+  --accent-color: #FF8587;
+  --accent-rgb-color: 255, 133, 135;
+  --disable-color: #999999;
+  --disable-rgb-color: 153, 153, 153;
+  --border-color: #CCCCCC;
+  --border-rgb-color: 204, 204, 204;
+  --txt-color: #333333;
+  --txt-rgb-color: 51, 51, 51;
+  --txt-on-main-color: #E0E0E0;
+  --txt-on-main-rgb-color: 224, 224, 224;
+  --txt-link-color: #3a66ac;
+  --txt-link-rgb-color: 58, 102, 172;
+  --bg-color: #ECECEC;
+  --bg-rgb-color: 236, 236, 236;
+  --bg-front-color: #ECECEC;
+  --bg-front-rgb-color: 236, 236, 236;
+  --bg-back-color: #ffffff;
+  --bg-back-rgb-color: 255, 255, 255;
+  --btn-color: #3a66ac;
+  --btn-rgb-color: 58, 102, 172;
+  --btn-txt-color: #ffffff;
+  --btn-txt-rgb-color: 255, 255, 255;
+  --btn-active-color: #6695e0;
+  --btn-active-rgb-color: 102, 149, 224;
+  --btn-disable-color: #DDDDDD;
+  --btn-disable-rgb-color: 221, 221, 221;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    --main-color: #1C1C27;
+    --main-rgb-color: 28, 28, 39;
+    --accent-color: #7F5AF0;
+    --accent-rgb-color: 127, 90, 240;
+    --disable-color: #999999;
+    --disable-rgb-color: 153, 153, 153;
+    --border-color: #CCCCCC;
+    --border-rgb-color: 204, 204, 204;
+    --txt-color: #ECECEC;
+    --txt-rgb-color: 236, 236, 236;
+    --txt-on-main-color: #E0E0E0;
+    --txt-on-main-rgb-color: 224, 224, 224;
+    --txt-link-color: #73757a;
+    --txt-link-rgb-color: 115, 117, 122;
+    --bg-color: #2d2b2e;
+    --bg-rgb-color: 45, 43, 46;
+    --bg-front-color: #2d2b2e;
+    --bg-front-rgb-color: 45, 43, 46;
+    --bg-back-color: #16161a;
+    --bg-back-rgb-color: 22, 22, 26;
+    --btn-color: #575a63;
+    --btn-rgb-color: 87, 90, 99;
+    --btn-txt-color: #e0e0e0;
+    --btn-txt-rgb-color: 224, 224, 224;
+    --btn-active-color: #3e248b;
+    --btn-active-rgb-color: 62, 36, 139;
+    --btn-disable-color: #333333;
+    --btn-disable-rgb-color: 51, 51, 51;
+  }
+}
 body.theme-dark {
-  --main-color: #1c1c27;
-  --accent-color: #7f5af0;
-  --base-bgcolor1: #2d2b2e;
-  --base-bgcolor1-rgb: 45, 43, 46;
-  --base-bgcolor2: #16161a;
-  --base-bgcolor2-rgb: 22, 22, 26;
-  --border-color: #cccccc;
-  --txt-color-on-main: #e0e0e0;
+  --main-color: #1C1C27;
+  --main-rgb-color: 28, 28, 39;
+  --accent-color: #7F5AF0;
+  --accent-rgb-color: 127, 90, 240;
+  --disable-color: #999999;
+  --disable-rgb-color: 153, 153, 153;
+  --border-color: #CCCCCC;
+  --border-rgb-color: 204, 204, 204;
   --txt-color: #ECECEC;
+  --txt-rgb-color: 236, 236, 236;
+  --txt-on-main-color: #E0E0E0;
+  --txt-on-main-rgb-color: 224, 224, 224;
   --txt-link-color: #73757a;
-  --txt-link-color-rgb: 87, 90, 99;
-  --button-bgcolor: #575a63;
-  --button-bgcolor-rgb: 87, 90, 99;
-  --button-bgcolor-active: #3e248b;
-  --button-txt-color: #e0e0e0;
+  --txt-link-rgb-color: 115, 117, 122;
+  --bg-color: #2d2b2e;
+  --bg-rgb-color: 45, 43, 46;
+  --bg-front-color: #2d2b2e;
+  --bg-front-rgb-color: 45, 43, 46;
+  --bg-back-color: #16161a;
+  --bg-back-rgb-color: 22, 22, 26;
+  --btn-color: #575a63;
+  --btn-rgb-color: 87, 90, 99;
+  --btn-txt-color: #e0e0e0;
+  --btn-txt-rgb-color: 224, 224, 224;
+  --btn-active-color: #3e248b;
+  --btn-active-rgb-color: 62, 36, 139;
+  --btn-disable-color: #333333;
+  --btn-disable-rgb-color: 51, 51, 51;
 }
 
 /* ### Foundation ### */
@@ -50,7 +140,7 @@ body {
   margin: 0;
   width: 100%;
   height: 100%;
-  background: var(--base-bgcolor1);
+  background: var(--bg-front-color);
   color: var(--txt-color);
   font-size: 14pt;
   font-family: "Splatoon2";
@@ -82,25 +172,25 @@ button {
   line-height: 1.7rem;
   margin: 1rem;
   padding: 0.5rem 1rem;
-  background-color: var(--button-bgcolor);
-  color: var(--button-txt-color);
+  background-color: var(--btn-color);
+  color: var(--btn-txt-color);
   border: none;
   border-radius: 1rem;
   transition: background-color 0.2s ease, color 0.2s ease;
 }
 button:active {
-  background-color: var(--button-bgcolor-active);
+  background-color: var(--btn-active-color);
   color: var(--txt-color);
 }
 @media (any-hover: hover) {
   button:hover, button:active {
-    background-color: var(--button-bgcolor-active);
+    background-color: var(--btn-active-color);
     color: var(--txt-color);
   }
 }
 
 dialog {
-  background-color: var(--base-bgcolor1);
+  background-color: var(--bg-front-color);
   border-radius: 0.5rem;
   border-width: 0;
   box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.2);
@@ -135,7 +225,7 @@ header {
   background: var(--main-color);
   box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.2);
   height: 4rem;
-  color: var(--txt-color-on-main);
+  color: var(--txt-on-main-color);
   font-size: 1.5rem;
   text-align: left;
   font-weight: bold;
@@ -162,7 +252,7 @@ header h1 {
 main {
   margin: 0;
   padding: 4rem;
-  background: var(--base-bgcolor2);
+  background: var(--bg-back-color);
   overflow-x: hidden;
 }
 @media screen and (max-width: 767px) {
@@ -185,7 +275,7 @@ nav {
     max-width: 600px;
     height: auto;
     min-height: 100%;
-    background: rgba(var(--base-bgcolor1-rgb), 0.95);
+    background: rgba(var(--bg-front-rgb-color), 0.95);
     margin: 0;
     padding: 5rem 1rem;
     opacity: 0;
@@ -259,15 +349,15 @@ nav > ul > li > a {
     border-radius: 0.5rem;
   }
   nav > ul > li > a:link, nav > ul > li > a:visited {
-    color: var(--txt-color-on-main);
+    color: var(--txt-on-main-color);
   }
   nav > ul > li > a:active, nav > ul > li > a.is_active {
-    background: rgba(var(--button-bgcolor-rgb), 0.5);
+    background: rgba(var(--btn-rgb-color), 0.5);
   }
 }
 @media screen and (min-width: 768px) and (any-hover: hover) {
   nav > ul > li > a:hover {
-    background: rgba(var(--button-bgcolor-rgb), 0.5);
+    background: rgba(var(--btn-rgb-color), 0.5);
   }
 }
 @media screen and (max-width: 767px) {
@@ -317,7 +407,7 @@ nav > ul > li > div {
     right: 0;
     max-width: 1200px;
     padding: 0.5rem 5rem 5rem;
-    background: rgba(var(--base-bgcolor1-rgb), 0.95);
+    background: rgba(var(--bg-front-rgb-color), 0.95);
   }
 }
 @media screen and (max-width: 767px) {
@@ -351,7 +441,7 @@ nav > ul > li > a.is_not_active + div {
 }
 
 body.theme-dark nav > ul > li > a:link, body.theme-dark nav > ul > li > a:visited {
-  color: var(--txt-color-on-main);
+  color: var(--txt-on-main-color);
 }
 
 .c-hamburger {
@@ -592,7 +682,7 @@ footer address {
   line-height: 1.7rem;
   margin: 0.3rem;
   padding: 0.5rem 1rem;
-  background-color: rgba(255, 255, 255, 0.9);
+  background-color: rgba(var(--btn-disable-rgb-color), 0.9);
   border: 2px solid var(--txt-link-color);
   border-radius: 1rem;
   transition: background-color 0.2s ease, color 0.2s ease, border 0.2s ease;
@@ -609,7 +699,7 @@ footer address {
   }
 }
 .p-filter-form input[type=checkbox]:checked + label, .p-filter-form input[type=radio]:checked + label, .p-setting-form input[type=checkbox]:checked + label, .p-setting-form input[type=radio]:checked + label {
-  background-color: var(--button-bgcolor);
+  background-color: var(--btn-color);
   color: #FFF;
 }
 .p-filter-form input[type=checkbox]:checked + label.p-filter-form--strong, .p-filter-form input[type=radio]:checked + label.p-filter-form--strong, .p-setting-form input[type=checkbox]:checked + label.p-filter-form--strong, .p-setting-form input[type=radio]:checked + label.p-filter-form--strong {
@@ -621,36 +711,36 @@ footer address {
 @media screen and (min-width: 768px) {
   .p-filter-form input[type=radio] + label, .p-setting-form input[type=radio] + label {
     margin: 0.3rem 0;
-    border-right: 1px solid rgba(var(--button-bgcolor-rgb), 0.2);
-    border-left: 1px solid rgba(var(--button-bgcolor-rgb), 0.2);
-    border-top: 2px solid var(--button-bgcolor);
-    border-bottom: 2px solid var(--button-bgcolor);
+    border-right: 1px solid rgba(var(--btn-rgb-color), 0.2);
+    border-left: 1px solid rgba(var(--btn-rgb-color), 0.2);
+    border-top: 2px solid var(--btn-color);
+    border-bottom: 2px solid var(--btn-color);
   }
   .p-filter-form input[type=radio] + label:first-of-type, .p-setting-form input[type=radio] + label:first-of-type {
     border-radius: 1rem 0 0 1rem;
-    border-left: 2px solid var(--button-bgcolor);
+    border-left: 2px solid var(--btn-color);
   }
   .p-filter-form input[type=radio] + label:last-of-type, .p-setting-form input[type=radio] + label:last-of-type {
     border-radius: 0 1rem 1rem 0;
-    border-right: 2px solid var(--button-bgcolor);
+    border-right: 2px solid var(--btn-color);
   }
 }
 @media screen and (max-width: 767px) {
   .p-filter-form input[type=radio] + label, .p-setting-form input[type=radio] + label {
     width: 100%;
     margin: 0 0.3rem;
-    border-top: 1px solid rgba(var(--button-bgcolor-rgb), 0.2);
-    border-bottom: 1px solid rgba(var(--button-bgcolor-rgb), 0.2);
-    border-right: 2px solid var(--button-bgcolor);
-    border-left: 2px solid var(--button-bgcolor);
+    border-top: 1px solid rgba(var(--btn-rgb-color), 0.2);
+    border-bottom: 1px solid rgba(var(--btn-rgb-color), 0.2);
+    border-right: 2px solid var(--btn-color);
+    border-left: 2px solid var(--btn-color);
   }
   .p-filter-form input[type=radio] + label:first-of-type, .p-setting-form input[type=radio] + label:first-of-type {
     border-radius: 1rem 1rem 0 0;
-    border-top: 2px solid var(--button-bgcolor);
+    border-top: 2px solid var(--btn-color);
   }
   .p-filter-form input[type=radio] + label:last-of-type, .p-setting-form input[type=radio] + label:last-of-type {
     border-radius: 0 0 1rem 1rem;
-    border-bottom: 2px solid var(--button-bgcolor);
+    border-bottom: 2px solid var(--btn-color);
   }
 }
 
@@ -704,7 +794,7 @@ footer address {
 }
 
 #p-buki-box .p-tr > div.p-done.is-done {
-  background-color: rgba(var(--button-bgcolor-rgb), 0.2);
+  background-color: rgba(var(--btn-rgb-color), 0.2);
   border-radius: 50%;
 }
 #p-buki-box .p-tr > div.p-done--1::after {
@@ -856,7 +946,7 @@ footer address {
 
 /** 画像保存 **/
 #p-capture-img-area {
-  background-color: var(--base-bgcolor1);
+  background-color: var(--bg-front-color);
   padding: 14px 12px 10px 12px;
   margin: 0;
   width: 1080px;
